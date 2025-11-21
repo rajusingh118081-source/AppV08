@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+        <title>Login</title>
+        <!-- Icons -->
+        <link href="~/vendors/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/vendors/css/simple-line-icons.min.css" rel="stylesheet">
+        <!-- Main styles for this application -->
+        <link href="~/css/style.css" rel="stylesheet">
+        <!-- Main styles for this application -->
+        <link href="~/ToastrMessage/toastr.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/ToastrMessage/toastr.min.css" rel="stylesheet" asp-append-version="true" />
+        <!-- Styles required by this views -->
+
+</head>
+<body class="app flex-row align-items-center">
+    <div class="container">
+        @RenderBody()
+    </div>
+
+        <!-- Bootstrap and necessary plugins -->
+        <script src="~/vendors/js/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/js/popper.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
+
+    <script src="~/ToastrMessage/toastr.min.js"></script>
+    <script src="~/jshelper/helper.js"></script>
+    <script>
+            $(document).ready(function () {
+            toastr.options = getToastrOptions();
+            });
+    </script>
+</body>
+</html>
+<style>
+
+    .field-validation-error {
+        color: red;
+    }
+
+    .validation-summary-errors {
+        color: red
+    }
+
+    input.input-validation-error,
+    textarea.input-validation-error,
+    select.input-validation-error {
+        background: #FEF1EC;
+        border: 1px solid #CD0A0A;
+    }
+
+    .validation-summary-errors ul {
+        list-style: none;
+        margin-left: -40px
+    }
+
+    .custom-select {
+        display: block;
+        background-image: url("data:image/") !important;
+    }
+</style>
+

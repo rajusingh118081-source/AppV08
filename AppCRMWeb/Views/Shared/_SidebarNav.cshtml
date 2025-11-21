@@ -1,0 +1,88 @@
+﻿<link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+@*<script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>*@
+<script src="~/js/DataTable/jquery.dataTables.min.js"></script>
+
+<link href="~/validation/validation.min.css" rel="stylesheet" />
+<script src="~/validation/validation.min.js"></script>
+<script src="~/validation/ValidationRules.js"></script>
+<script src="~/jquery/dist/jquery.form.min.js"></script>
+
+
+
+<link href="~/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" />
+<script src="~/jquery-confirm/jquery-confirm.min.js"></script>
+@using System.Security.Claims;
+@{
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<!-- *SIDEBAR-NAV* -->
+<nav class="sidebar-nav">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Home" asp-action="Index" asp-route-view="Dashboard"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>            
+        </li>
+@*         <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Catalog</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="DataManager" asp-action="Read" asp-route-view="Main_LoanMembers"><i class="icon-puzzle"></i> Manage Loans</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="DataManager" asp-action="Read" asp-route-view="Main_Products"><i class="icon-puzzle"></i> Manage Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="DataManager" asp-action="Read" asp-route-view="Main_Stock"><i class="icon-puzzle"></i> Manage Stocks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Main_Supplier" asp-action="Read" asp-route-view="Supplier"><i class="icon-puzzle"></i> Manage Supplier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Main_Dispatch" asp-action="Read" asp-route-view="Dispatch"><i class="icon-puzzle"></i> Manage Dispatch</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Product Billing</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Main_SalesOrder" asp-action="Details" asp-route-view="Billing"><i class="icon-puzzle"></i>Manage Sales Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Main_SalesOrder" asp-action="Read" asp-route-view="Billing"><i class="icon-puzzle"></i>Total Sales</a>
+                </li>
+            </ul>
+        </li> *@
+        @* @if (App.Permission.Sys_Permission.CheckSideMenuPermission(userId, "Admin").Equals(true)) *@
+@*         
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Administrator</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Sec_Users" asp-action="Read" asp-route-view="Users"><i class="icon-puzzle"></i>Manage Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ref_SysDataManagerFields" asp-action="Read" asp-route-view="Users"><i class="icon-puzzle"></i>Manage Fields</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Utilities</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ref_Category" asp-action="Read" asp-route-view="Categories"><i class="icon-puzzle"></i> Manage Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ref_Location" asp-action="Read" asp-route-view="Location"><i class="icon-puzzle"></i> Manage Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ref_PaymentType" asp-action="Read" asp-route-view="Location"><i class="icon-puzzle"></i> Manage Payment Types</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ref_TaxRate" asp-action="Read" asp-route-view="Ref_TaxRate"><i class="icon-puzzle"></i> Manage Tax Rates</a>
+                    </li>
+                </ul>
+            </li> *@
+        
+    </ul>
+</nav>
+<!-- /*SIDEBAR-NAV* -->
