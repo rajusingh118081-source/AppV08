@@ -1,31 +1,21 @@
-﻿var columnTable = [];
-const ManageColumns = (controllerName, fieldName) => {
-    switch (controllerName) {
-        case "Ref_EquatedMonthlyInstallment":
-            EquatedMonthlyInstallment(fieldName);
-            break;
-        default:
-            columnTable.push({ "data": fieldName, "name": fieldName, "autoWidth": true });
-    }
-}
+﻿AjaxCall.get("/api/user", { id: 1 })
+    .done(function (res) {
+        console.log("GET Response:", res);
+    });
 
-const EquatedMonthlyInstallment = (fieldName) => {
-    if (fieldName == "refPaymentStatusName") {
-        columnTable.push({
-            "data": "refPaymentStatusName",
-            "searchable": false,
-            "sortable": false,
-            "render": function (data, type, full, meta) {
-                if (data == "Done") {
-                    return '<button type="button" class="btn btn-success rounded-pill">' + data + '</button>';
-                } else {
-                    return '<button type="button" class="btn btn-warning rounded-pill">' + data + '</button>';
-                }
-            }
-        });
-    } else {
-        columnTable.push({ "data": fieldName, "name": fieldName, "autoWidth": true });
-    }
-}
+AjaxCall.post("/api/user/create", { name: "John", age: 30 })
+    .done(function (res) {
+        console.log("POST Success:", res);
+    });
 
+AjaxCall.put("/api/user/update/5", { name: "Updated Name" })
+    .done(function (res) {
+        console.log("Updated:", res);
+    });
+
+
+AjaxCall.delete("/api/user/delete/5", {})
+    .done(function (res) {
+        console.log("Deleted:", res);
+    });
 
