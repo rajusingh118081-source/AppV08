@@ -4,91 +4,83 @@
 
 <!-- *DASHBOARD* -->
 <div class="animated fadeIn">
-    <div class="row">
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-primary">
-                <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-settings"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+    <div class="row g-4">
+
+        <!-- Users -->
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card gradient-blue">
+                <div class="card-content">
+                    <div>
+                        <span class="card-label">Total Users</span>
+                        <h2>12,845</h2>
+                        <p class="trend up">
+                            ↑ 18.5% this month
+                        </p>
                     </div>
-                    <h4 class="mb-0">9.823</h4>
-                    <p>Members online</p>
-                </div>
-                <div class="chart-wrapper px-3" style="height: 70px;">
-                    <canvas id="card-chart1" class="chart" height="70"></canvas>
-                </div>
-            </div>
-        </div>
-        <!--/.col-->
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-info">
-                <div class="card-body pb-0">
-                    <button type="button" class="btn btn-transparent p-0 float-right">
-                        <i class="icon-location-pin"></i>
-                    </button>
-                    <h4 class="mb-0">9.823</h4>
-                    <p>Members online</p>
-                </div>
-                <div class="chart-wrapper px-3" style="height: 70px;">
-                    <canvas id="card-chart2" class="chart" height="70"></canvas>
-                </div>
-            </div>
-        </div>
-        <!--/.col-->
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-warning">
-                <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-settings"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                    <div class="card-icon">
+                        <i class="fa fa-users"></i>
                     </div>
-                    <h4 class="mb-0">9.823</h4>
-                    <p>Members online</p>
-                </div>
-                <div class="chart-wrapper" style="height: 70px;">
-                    <canvas id="card-chart3" class="chart" height="70"></canvas>
                 </div>
             </div>
         </div>
-        <!--/.col-->
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-danger">
-                <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-settings"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+
+        <!-- Revenue -->
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card gradient-green">
+                <div class="card-content">
+                    <div>
+                        <span class="card-label">Revenue</span>
+                        <h2>$48.2K</h2>
+                        <p class="trend up">
+                            ↑ 12.4% this month
+                        </p>
                     </div>
-                    <h4 class="mb-0">9.823</h4>
-                    <p>Members online</p>
-                </div>
-                <div class="chart-wrapper px-3" style="height: 70px;">
-                    <canvas id="card-chart4" class="chart" height="70"></canvas>
+                    <div class="card-icon">
+                        <i class="fa fa-usd"></i>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--/.col-->
+
+        <!-- Orders -->
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card gradient-orange">
+                <div class="card-content">
+                    <div>
+                        <span class="card-label">Orders</span>
+                        <h2>2,457</h2>
+                        <p class="trend up">
+                            ↑ 8.7% this month
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profit -->
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card gradient-purple">
+                <div class="card-content">
+                    <div>
+                        <span class="card-label">Profit</span>
+                        <h2>$16.9K</h2>
+                        <p class="trend up">
+                            ↑ 24.1% this month
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!--/.row-->
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-5">
@@ -117,3 +109,98 @@
 @section Scripts {
     <script src="~/js/views/main.js"></script>
 }
+<style>
+    .dashboard-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 28px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    transition: .35s ease;
+    min-height: 160px;
+    }
+
+    .dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,.18);
+    }
+
+    .dashboard-card::before {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    top: -90px;
+    right: -90px;
+    }
+
+    .dashboard-card::after {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    bottom: -50px;
+    right: 20px;
+    }
+
+    .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    }
+
+    .card-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: .9;
+    }
+
+    .dashboard-card h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10px 0;
+    }
+
+    .card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    }
+
+    .trend {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    }
+
+    .gradient-blue {
+    background: linear-gradient(135deg,#2563eb,#06b6d4);
+    }
+
+    .gradient-green {
+    background: linear-gradient(135deg,#10b981,#22c55e);
+    }
+
+    .gradient-orange {
+    background: linear-gradient(135deg,#f97316,#f59e0b);
+    }
+
+    .gradient-purple {
+    background: linear-gradient(135deg,#7c3aed,#ec4899);
+    }
+</style>
