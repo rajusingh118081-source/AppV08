@@ -13,26 +13,15 @@ $("#formLoanReferencesInfo").on("submit", function (event) {
     if (!validation.isValid()) {
         validation.highlight();
     } else {
-        $.ajax({
-            type: $this.attr('method'),
-            url: $this.attr('action'),
-            data: frmValues
-        }).done(function (data) {
-            if (data.status == true) {
-                $("formLoanReferencesInfo").trigger("reset");
-                //var editor = $("#Description").data("kendoEditor");
-                //editor.value("")
-                toastr.success(data.message);
-                $('#ModalPopup_Ref_LoanReferencesInfo').modal('toggle');
-                $('#Table_Ref_LoanReferencesInfo').DataTable().ajax.reload();
-                rowID = 0;
-                LoadFuncation();
-            } else {
-                toastr.error(data.message);
+        var url = $this.attr('action'),
+        var data = frmValues;
+        AjaxCall.postRequest(
+            url,
+            data,
+            function (res) {
+                console.log("POST success:", res);
             }
-        }).fail(function (data) {
-            toastr.error('Internal server error');
-        });
+        );
     }
     event.preventDefault();
 });

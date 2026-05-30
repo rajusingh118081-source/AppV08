@@ -1,38 +1,21 @@
-﻿/* Extend jQuery with functions for PUT and DELETE requests. */
+﻿var AjaxCall = {
+    request: function(method, url, data, type) {
+        type = type || "json";
 
-function _ajax_request(url, data, callback, type, method) {
-    if (jQuery.isFunction(data)) {
-        callback = data;
-        data = {};
-    }
+        return $.ajax({
+            url: url,
+            method: method,
+            dataType: type,
+            data: method === "GET" ? data : JSON.stringify(data),
+            contentType: method === "GET" ? undefined : "application/json; charset=utf-8",
+            error: function (xhr, status, error) {
+                console.error("AJAX Error:", status, error, xhr.responseText);
+            }
+        });
+    },
 
-    return jQuery.ajax({
-        type: method,
-        url: url,
-        data: data,
-        contentType: "application/json; charset=utf-8",
-        success: callback,
-        dataType: type,
-        error: function (request, msg, error) {
-            console.log(request);
-            console.log('--------------------------');
-            console.log(msg);
-            console.log(error);
-        }
-    });
-}
-
-var AjaxCall = ({
-    postRequest: function (url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'post');
-    },
-    getRequest: function (url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'get');
-    },
-    putRequest: function (url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'PUT');
-    },
-    deleteRequest: function (url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'DELETE');
-    }
-});
+    get: function (url, data, type) { return AjaxCall.request("GET", url, data, type); },
+    post: function (url, data, type) { return AjaxCall.request("POST", url, data, type); },
+    put: function (url, data, type) { return AjaxCall.request("PUT", url, data, type); },
+    delete: function (url, data, type) { return AjaxCall.request("DELETE", url, data, type); }
+};

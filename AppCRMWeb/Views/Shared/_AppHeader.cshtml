@@ -26,67 +26,101 @@
             <a class="nav-link" href="#">Settings</a>
         </li>
     </ul>
+
+    <!-- Center Search Box -->
+    <form class="form-inline mx-auto d-none d-md-flex">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search..." style="width:300px;">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown d-md-down-none">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="icon-bell"></i>
                 <span class="badge badge-pill badge-danger">5</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-                <div class="dropdown-header bg-light">
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 shadow">
+
+                <!-- Header -->
+                <div class="dropdown-header bg-light border-bottom">
                     <strong>You have 5 notifications</strong>
                 </div>
-                <a class="dropdown-item" href="#">
-                    <i class="icon-user-follow text-success"></i> New user registered
+
+                <!-- Notification Items -->
+                <a class="dropdown-item d-flex align-items-start gap-2 py-2" href="#">
+                    <i class="icon-user-follow text-success mt-1"></i>
+                    <div>
+                        <div>New user registered</div>
+                        <small class="text-muted">Just now</small>
+                    </div>
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="icon-user-unfollow text-danger"></i> User deleted
+
+                <a class="dropdown-item d-flex align-items-start gap-2 py-2" href="#">
+                    <i class="icon-user-unfollow text-danger mt-1"></i>
+                    <div>
+                        <div>User deleted</div>
+                        <small class="text-muted">2 min ago</small>
+                    </div>
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="icon-chart text-info"></i> Sales report is ready
+
+                <a class="dropdown-item d-flex align-items-start gap-2 py-2" href="#">
+                    <i class="icon-chart text-info mt-1"></i>
+                    <div>
+                        <div>Sales report is ready</div>
+                        <small class="text-muted">Today</small>
+                    </div>
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="icon-basket-loaded text-primary"></i> New client
+
+                <a class="dropdown-item d-flex align-items-start gap-2 py-2" href="#">
+                    <i class="icon-basket-loaded text-primary mt-1"></i>
+                    <div>
+                        <div>New client added</div>
+                        <small class="text-muted">1 hour ago</small>
+                    </div>
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="icon-speedometer text-warning"></i> Server overloaded
+
+                <a class="dropdown-item d-flex align-items-start gap-2 py-2" href="#">
+                    <i class="icon-speedometer text-warning mt-1"></i>
+                    <div>
+                        <div>Server overloaded</div>
+                        <small class="text-muted">Critical</small>
+                    </div>
                 </a>
-                <div class="dropdown-header bg-light">
-                    <strong>Server</strong>
+
+                <!-- Server Section -->
+                <div class="dropdown-header bg-light border-top border-bottom">
+                    <strong>Server Status</strong>
                 </div>
-                <a class="dropdown-item" href="#">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>CPU Usage</b>
-                        </small>
+
+                <div class="px-3 py-2">
+                    <small><b>CPU Usage</b></small>
+                    <div class="progress progress-xs mb-1">
+                        <div class="progress-bar bg-info" style="width: 25%"></div>
                     </div>
-                    <span class="progress progress-xs">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </span>
-                    <small class="text-muted">348 Processes. 1/4 Cores.</small>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>Memory Usage</b>
-                        </small>
+                    <small class="text-muted">348 Processes • 1/4 Cores</small>
+                </div>
+
+                <div class="px-3 py-2">
+                    <small><b>Memory Usage</b></small>
+                    <div class="progress progress-xs mb-1">
+                        <div class="progress-bar bg-warning" style="width: 70%"></div>
                     </div>
-                    <span class="progress progress-xs">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                    </span>
-                    <small class="text-muted">11444GB/16384MB</small>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>SSD 1 Usage</b>
-                        </small>
+                    <small class="text-muted">11.4GB / 16GB</small>
+                </div>
+
+                <div class="px-3 py-2">
+                    <small><b>SSD Usage</b></small>
+                    <div class="progress progress-xs mb-1">
+                        <div class="progress-bar bg-danger" style="width: 95%"></div>
                     </div>
-                    <span class="progress progress-xs">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </span>
-                    <small class="text-muted">243GB/256GB</small>
-                </a>
+                    <small class="text-muted">243GB / 256GB</small>
+                </div>
+
             </div>
         </li>
         <li class="nav-item dropdown d-md-down-none">
@@ -316,3 +350,45 @@
     </button>
 </header>
 <!-- /*APP-HEADER* -->
+<style>
+    .app-header {
+        display: flex;
+        align-items: center;
+    }
+
+        .app-header .mx-auto {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+
+    /* HEADER COLOR */
+    .dropdown-header {
+        border-radius: 5px;
+        overflow: hidden;
+        background: #20a8d8 !important; /* blue header */
+        color: #ffffff !important;
+        padding: 12px 15px;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ITEM BACKGROUND */
+    .dropdown-item {
+        background: #ffffff;
+        color: #1f2937;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 15px;
+        border-bottom: 1px solid #e5e7eb;
+        transition: 0.2s;
+    }
+
+        /* HOVER EFFECT */
+        .dropdown-item:hover {
+            background: #f3f4f6;
+            color: #111827;
+        }
+</style>
