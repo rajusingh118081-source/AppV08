@@ -23,7 +23,7 @@ namespace AppCRMWeb.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Privacy(string q)
         {
             return View();
         }
