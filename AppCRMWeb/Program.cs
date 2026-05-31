@@ -1,5 +1,7 @@
 using AapRepository;
-using App.Model;
+using App.Domain.Entities.Sec_Model;
+using App.Infrastructure.ExternalServices;
+using App.Repository.IRepository.IExternal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -17,6 +19,7 @@ builder.Services.AddHttpContextAccessor();
 // Register UnitOfWork as Scoped
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<Sec_Users>();
+builder.Services.AddHttpClient<IHttpService, HttpService>();
 
 // Build the app
 var app = builder.Build();

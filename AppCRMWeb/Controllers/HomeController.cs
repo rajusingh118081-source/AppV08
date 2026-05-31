@@ -19,7 +19,7 @@ namespace AppCRMWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dadd=_unitOfWork._UserRep.GetByIdAsync(18).Result;
+            //var dadd=_unitOfWork._UserRep.GetByIdAsync(18).Result;
             return View();
         }
 

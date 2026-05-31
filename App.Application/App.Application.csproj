@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Ref_DTO\" />
+    <Folder Include="DTOs\Sys_DTO\" />
+    <Folder Include="ExternalServices\ShopifySync\" />
+    <Folder Include="ExternalServices\QBDSync\" />
+    <Folder Include="ExternalServices\QBOSync\" />
+    <Folder Include="Mapping\Ref_Mapping\" />
+    <Folder Include="Services\Ref_Services\" />
+    <Folder Include="Services\Sys_Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain\App.Domain.csproj" />
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

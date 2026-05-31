@@ -1,5 +1,5 @@
 ﻿using AapRepository;
-using App.Model;
+using App.Domain.Entities.Sec_Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Security.Claims;
@@ -24,9 +24,8 @@ namespace AppCRMWeb.Controllers
 
             if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
             {
-                CurrentUser = await _unitOfWork._UserRep.GetByIdAsync(userId);
+                //CurrentUser = await _unitOfWork._UserRep.GetByIdAsync(userId);
             }
-
             base.OnActionExecuting(context);
         }
     }
