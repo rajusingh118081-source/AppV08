@@ -309,7 +309,7 @@
                 <div class="dropdown-header bg-light">
                     <strong>Settings</strong>
                 </div>*@
-                <a class="dropdown-item" asp-controller="Sec_Users" asp-action="UserProfile" asp-route-view="UserProfile">
+                <a class="dropdown-item" asp-controller="Sec_Users" asp-action="Details" asp-route-view="Details">
                     <i class="fa fa-user"></i> Profile
                 </a>
                 <a class="dropdown-item" asp-controller="Sec_Users" asp-action="Settings" asp-route-view="Settings">
@@ -351,44 +351,5 @@
 </header>
 <!-- /*APP-HEADER* -->
 <style>
-    .app-header {
-        display: flex;
-        align-items: center;
-    }
-
-        .app-header .mx-auto {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-
-    /* HEADER COLOR */
-    .dropdown-header {
-        border-radius: 5px;
-        overflow: hidden;
-        background: #20a8d8 !important; /* blue header */
-        color: #ffffff !important;
-        padding: 12px 15px;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* ITEM BACKGROUND */
-    .dropdown-item {
-        background: #ffffff;
-        color: #1f2937;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 12px 15px;
-        border-bottom: 1px solid #e5e7eb;
-        transition: 0.2s;
-    }
-
-        /* HOVER EFFECT */
-        .dropdown-item:hover {
-            background: #f3f4f6;
-            color: #111827;
-        }
+    
 </style>

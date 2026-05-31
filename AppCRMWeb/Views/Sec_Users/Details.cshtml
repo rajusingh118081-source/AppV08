@@ -1,0 +1,119 @@
+﻿<div class="card overflow-hidden">
+    <div class="row no-gutters row-bordered row-border-light">
+        <div class="col-md-2 pt-0">
+            <div class="list-group list-group-flush account-settings-links">
+                <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
+                <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
+                <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notifications</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="tab-content">
+                <div class="tab-pane fade active show" id="account-general">
+
+                    <div class="card-body">
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control mb-1" autocomplete="off" id="txtUsername" readonly="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" autocomplete="off" id="txtFirstName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" autocomplete="off" id="txtLastName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">E-mail</label>
+                            <input type="text" class="form-control mb-1" autocomplete="off" id="txtEmailAddress" readonly="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Phone No.</label>
+                            <input type="text" class="form-control mb-1" autocomplete="off" id="txtPhoneNo">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Role</label>
+                            <input type="text" class="form-control" autocomplete="off" id="txtRoleName">
+                        </div>
+
+                        <div style="margin-left:12px">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" id="IsActive" class="custom-control-input" checked="checked">
+                                <span class="custom-control-label">IsActive</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="account-change-password">
+                    <div class="card-body pb-2">
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Current password</label>
+                            <input type="password" class="form-control" autocomplete="off" id="txtCurrentPassword">
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label class="form-label">New password</label>
+                            <input type="password" class="form-control" autocomplete="off" id="txtNewPassword">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Confirm password</label>
+                            <input type="password" class="form-control" autocomplete="off" id="txtConfirmPassword">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <button type="button" class="btn btn-primary btn-round" title="Update password" id="btnChangedPassword">Reset Password</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="account-notifications">
+                    <div class="card-body pb-2">
+
+                        <h6 class="mb-4">Activity</h6>
+
+                        <div class="form-group col-md-6">
+                            <label class="switcher">
+                                <input type="checkbox" class="switcher-input" checked="">
+                                <span class="switcher-indicator">
+                                    <span class="switcher-yes"></span>
+                                    <span class="switcher-no"></span>
+                                </span>
+                                <span class="switcher-label">Email me when someone comments on my article</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="switcher">
+                                <input type="checkbox" class="switcher-input" checked="">
+                                <span class="switcher-indicator">
+                                    <span class="switcher-yes"></span>
+                                    <span class="switcher-no"></span>
+                                </span>
+                                <span class="switcher-label">Email me when someone answers on my forum thread</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="switcher">
+                                <input type="checkbox" class="switcher-input">
+                                <span class="switcher-indicator">
+                                    <span class="switcher-yes"></span>
+                                    <span class="switcher-no"></span>
+                                </span>
+                                <span class="switcher-label">Email me when someone follows me</span>
+                            </label>
+                        </div>
+                    </div>
+                    <hr class="border-light m-0">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+        border-color: #26B4FF;
+        background-color: #26B4FF;
+        color: #fff;
+    }
+</style>
