@@ -10,7 +10,6 @@
     <Folder Include="DTOs\Ref_DTO\" />
     <Folder Include="DTOs\Sys_DTO\" />
     <Folder Include="ExternalServices\ShopifySync\" />
-    <Folder Include="ExternalServices\QBDSync\" />
     <Folder Include="ExternalServices\QBOSync\" />
     <Folder Include="Mapping\Ref_Mapping\" />
     <Folder Include="Services\Ref_Services\" />
@@ -19,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="IppDotNetSdkForQuickBooksApiV3" Version="14.7.1.4" />
   </ItemGroup>
 
   <ItemGroup>
