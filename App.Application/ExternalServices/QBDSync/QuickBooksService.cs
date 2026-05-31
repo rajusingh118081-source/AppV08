@@ -1,6 +1,9 @@
 ﻿using App.Application.DTOs.Main_DTO;
+using App.Domain.Entities;
 using Intuit.Ipp.OAuth2PlatformClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,14 +13,20 @@ namespace App.Application.ExternalServices.QBDSync
     public class QuickBooksService : IQuickBooks
     {
         private readonly OAuth2Client _oauthClient;
-
-        public QuickBooksService(IConfiguration config)
+        private readonly ILogger<QuickBooksService> _logger;
+        public QuickBooksService(IConfiguration config, ILogger<QuickBooksService> logger,
+            IOptions<QBOSettings> options)
         {
+            _logger = logger;
+
+            var settings = options.Value;
+
             _oauthClient = new OAuth2Client(
-                config["QuickBooks:ClientId"],
-                config["QuickBooks:ClientSecret"],
-                config["QuickBooks:RedirectUri"],
-                config["QuickBooks:Environment"]);
+                settings.ClientId,
+                settings.ClientSecret,
+                settings.RedirectUri,
+                settings.Environment);
+            _logger.LogInformation("Customer Sync Started. CorrelationId:{CorrelationId}", _oauthClient.ClientID);
         }
 
         public string GetAuthorizationUrl()

@@ -1,4 +1,6 @@
 using AapRepository;
+using App.Application.ExternalServices.QBDSync;
+using App.Domain.Entities;
 using App.Domain.Entities.Sec_Model;
 using App.Infrastructure.ExternalServices;
 using App.Repository.IRepository.IExternal;
@@ -19,8 +21,11 @@ builder.Services.AddHttpContextAccessor();
 // Register UnitOfWork as Scoped
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<Sec_Users>();
-builder.Services.AddHttpClient<IHttpService, HttpService>();
 
+builder.Services.AddHttpClient<IHttpService, HttpService>();
+builder.Services.Configure<QBOSettings>(builder.Configuration.GetSection("QuickBooks"));
+builder.Services.TryAddScoped<IQuickBooks, QuickBooksService>();
+//builder.Services.AddHttpClient<IQuickBooks, QuickBooksService>();
 // Build the app
 var app = builder.Build();
 

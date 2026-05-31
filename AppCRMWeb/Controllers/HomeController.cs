@@ -1,4 +1,5 @@
 using AapRepository;
+using App.Application.ExternalServices.QBDSync;
 using App.Model;
 using App.Model.Utility.Helper;
 using AppCRMWeb.Models;
@@ -11,19 +12,22 @@ namespace AppCRMWeb.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger,IUnitOfWork unitOfWork,IHttpContextAccessor httpContext): base(unitOfWork, httpContext)
+        private readonly IQuickBooks _quickBooks;
+        public HomeController(ILogger<HomeController> logger,IUnitOfWork unitOfWork,IHttpContextAccessor httpContext,
+            IQuickBooks quickBooks) : base(unitOfWork, httpContext)
         {
             _logger = logger;
+            _quickBooks = quickBooks;
+            Index();
         }
 
         public async Task<IActionResult> Index()
         {
-            //var dadd=_unitOfWork._UserRep.GetByIdAsync(18).Result;
+            var qboOnle= _quickBooks.GetAuthorizationUrl();
             return View();
         }
 
-        public IActionResult Privacy(string q)
+        public IActionResult Privacy(string code, string state, string realmId)
         {
             return View();
         }
