@@ -290,55 +290,33 @@
                 <div class="dropdown-header bg-light">
                     <strong>Account</strong>
                 </div>
-                @*<a class="dropdown-item" href="#">
-                    <i class="fa fa-bell-o"></i> Updates
-                    <span class="badge badge-info">42</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-envelope-o"></i> Messages
-                    <span class="badge badge-success">42</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-tasks"></i> Tasks
-                    <span class="badge badge-danger">42</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-comments"></i> Comments
-                    <span class="badge badge-warning">42</span>
-                </a>
-                <div class="dropdown-header bg-light">
-                    <strong>Settings</strong>
-                </div>*@
-                <a class="dropdown-item" asp-controller="Sec_Users" asp-action="Details" asp-route-view="Details">
+
+                <a class="dropdown-item" href="/Sec_Users/Details?view=Details">
                     <i class="fa fa-user"></i> Profile
                 </a>
-                <a class="dropdown-item" asp-controller="Sec_Users" asp-action="Settings" asp-route-view="Settings">
-                    <i class="fa fa-wrench"></i> Settings
-                </a>
-                @*<a class="dropdown-item" href="#">
-                    <i class="fa fa-usd"></i> Payments
-                    <span class="badge badge-dark">42</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-file"></i> Projects
-                    <span class="badge badge-primary">42</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-shield"></i> Lock Account
-                </a>*@
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout" asp-route-view="Login">
-                        <i class="fa fa-lock"></i> Logout
+
+                <!-- Settings Submenu -->
+                <div class="dropdown-submenu dropdown-item">
+                    <a class="dropdown-item dropdown-toggle" href="javascript:void(0);">
+                        <i class="fa fa-wrench"></i> Settings
                     </a>
-                }
-                else
-                {
-                    <a class="dropdown-item" asp-controller="Account" asp-action="Login" asp-route-view="Login">
-                        <i class="fa fa-lock"></i> Login
-                    </a>
-                }
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Sec_Users/ChangePassword">
+                            Change Password
+                        </a>
+                        <a class="dropdown-item" href="/Sec_Users/Preferences">
+                            Preferences
+                        </a>
+                        <a class="dropdown-item" href="/Sec_Users/Notifications">
+                            Notifications
+                        </a>
+                    </div>
+                </div>
+
+                <a class="dropdown-item" href="/Account/Login?view=Login">
+                    <i class="fa fa-lock"></i> Login
+                </a>
             </div>
         </li>
     </ul>

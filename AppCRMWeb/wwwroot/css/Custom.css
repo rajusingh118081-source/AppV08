@@ -34,7 +34,7 @@
 
 /* HEADER COLOR */
 .dropdown-header {
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     overflow: hidden;
     background: #26B4FF !important; /* blue header */
     color: #ffffff !important;
@@ -63,3 +63,36 @@
 
 
 
+
+
+/* Setting sub menu */
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu > .dropdown-menu {
+        position: absolute;
+        top: 0;
+        left: auto !important;
+        right: 100% !important; /* open to left */
+        margin-right: 2px;
+        display: none;
+        min-width: 180px;
+        z-index: 9999;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+.dropdown-menu {
+    overflow: visible !important;
+}
+
+.dropdown-menu {
+    transform: translate3d(...);
+}
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
