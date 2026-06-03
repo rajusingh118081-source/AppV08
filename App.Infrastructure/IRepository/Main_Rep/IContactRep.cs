@@ -6,8 +6,8 @@ using System.Text;
 
 namespace App.Infrastructure.IRepository.Main_Rep
 {
-    public interface IContactRepository : IRepository<Contact> 
+    public interface IContactRep : IRepository<Main_Contacts> 
     {
-        Task<Contact?> GetByEmailAsync(string email);
+        Task<Main_Contacts?> GetByEmailAsync(string email);
     }
 }

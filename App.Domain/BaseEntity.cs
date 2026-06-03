@@ -34,7 +34,7 @@ namespace App.Domain
         [NotMapped]
         public string? Description { get; set; }
     }
-    public class ViewModelBaseEntity
+    public class ViewBaseEntity
     {
         [Key]
         public int ID { get; set; }

@@ -1,4 +1,5 @@
 ﻿
+using App.Domain.Entities.Ref_Model;
 using App.Domain.Entities.Sec_Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,6 @@ namespace AapRepository
         }
 
         public DbSet<Sec_Users> Sec_Users { get; set; }
+        public DbSet<Ref_SysDataManagerFields> Ref_SysDataManagerFields { get; set; }
     }
 }

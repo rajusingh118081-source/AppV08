@@ -9,12 +9,13 @@ using System.Text;
 
 namespace App.Application.Mapping.Main_Mapping
 {
-    public class ContactProfile : Profile
+    public class ContactProfiles : Profile
     {
-        public ContactProfile()
+        public ContactProfiles()
         {
-            CreateMap<Contact, ContactDto>();
-            CreateMap<ContactDto, Contact>();
+            // Mapping for Main_Contacts and Main_ContactsDto
+            CreateMap<Main_Contacts, Main_ContactsDto>();
+            CreateMap<Main_ContactsDto, Main_Contacts>();
         }
     }
 }

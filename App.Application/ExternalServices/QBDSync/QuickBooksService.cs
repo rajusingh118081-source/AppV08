@@ -46,13 +46,13 @@ namespace App.Application.ExternalServices.QBDSync
             // Save RealmId
         }
 
-        public async Task<List<ContactDto>> GetCustomersAsync()
+        public async Task<List<Main_ContactsDto>> GetCustomersAsync()
         {
             // Use DataService
-            return new List<ContactDto>();
+            return new List<Main_ContactsDto>();
         }
 
-        public async Task<string> CreateCustomerAsync(ContactDto dto)
+        public async Task<string> CreateCustomerAsync(Main_ContactsDto dto)
         {
             return "";
         }

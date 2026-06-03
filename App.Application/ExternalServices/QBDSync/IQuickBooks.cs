@@ -11,8 +11,8 @@ namespace App.Application.ExternalServices.QBDSync
 
         Task SaveTokensAsync(string authorizationCode,string realmId);
 
-        Task<List<ContactDto>> GetCustomersAsync();
+        Task<List<Main_ContactsDto>> GetCustomersAsync();
 
-        Task<string> CreateCustomerAsync(ContactDto dto);
+        Task<string> CreateCustomerAsync(Main_ContactsDto dto);
     }
 }
