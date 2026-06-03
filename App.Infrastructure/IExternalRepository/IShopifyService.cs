@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace App.Repository.IRepository.IExternal
+namespace App.Infrastructure.IExternalRepository
 {
     //public interface IShopifyService
     //{

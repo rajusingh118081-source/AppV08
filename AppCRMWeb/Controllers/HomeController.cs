@@ -18,12 +18,12 @@ namespace AppCRMWeb.Controllers
         {
             _logger = logger;
             _quickBooks = quickBooks;
-            Index();
         }
 
         public async Task<IActionResult> Index()
         {
-            var qboOnle= _quickBooks.GetAuthorizationUrl();
+            //[FromQuery] UserSearchRequest request
+            var qboOnle = _quickBooks.GetAuthorizationUrl();
             return View();
         }
 

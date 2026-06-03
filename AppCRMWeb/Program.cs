@@ -3,7 +3,7 @@ using App.Application.ExternalServices.QBDSync;
 using App.Domain.Entities;
 using App.Domain.Entities.Sec_Model;
 using App.Infrastructure.ExternalServices;
-using App.Repository.IRepository.IExternal;
+using App.Infrastructure.IExternalRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;

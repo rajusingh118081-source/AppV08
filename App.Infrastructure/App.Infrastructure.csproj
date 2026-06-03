@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IExternalRepository\" />
+    <Folder Include="IRepository\Sec_Rep\" />
+    <Folder Include="IRepository\Sys_Rep\" />
     <Folder Include="Repository\Main_Services\" />
-    <Folder Include="Repository\Ref_Services\" />
     <Folder Include="Repository\Sys_Services\" />
   </ItemGroup>
 

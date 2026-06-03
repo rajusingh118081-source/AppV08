@@ -1,4 +1,4 @@
-﻿using App.Repository.IRepository.IExternal;
+﻿using App.Infrastructure.IExternalRepository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;

@@ -2,7 +2,6 @@
 using App.Domain.Entities.Sec_Model;
 using App.Infrastructure;
 using App.Infrastructure.IRepository;
-using App.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

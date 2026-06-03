@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace App.Repository.IRepository.IExternal
+namespace App.Infrastructure.IExternalRepository
 {
-    internal class IFlipkartService
+    internal class IQbdService
     {
     }
 }
