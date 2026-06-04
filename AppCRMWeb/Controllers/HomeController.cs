@@ -1,7 +1,5 @@
 using AapRepository;
-using App.Application.ExternalServices.QBDSync;
-using App.Model;
-using App.Model.Utility.Helper;
+using App.Application.IExternalRepository;
 using AppCRMWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -12,9 +10,9 @@ namespace AppCRMWeb.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-        private readonly IQuickBooks _quickBooks;
+        private readonly IQuickBooksOnline _quickBooks;
         public HomeController(ILogger<HomeController> logger,IUnitOfWork unitOfWork,IHttpContextAccessor httpContext,
-            IQuickBooks quickBooks) : base(unitOfWork, httpContext)
+            IQuickBooksOnline quickBooks) : base(unitOfWork, httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks;

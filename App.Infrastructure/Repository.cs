@@ -1,7 +1,6 @@
 ﻿using AapRepository;
+using App.Application;
 using App.Domain;
-using App.Entity;
-using App.Model;
 using FastMember;
 using Microsoft.EntityFrameworkCore;
 using System.Data;

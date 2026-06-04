@@ -1,5 +1,5 @@
 ﻿using AapRepository;
-using App.Application.ExternalServices.QBDSync;
+using App.Application.IExternalRepository;
 using AppCRMWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +9,9 @@ namespace AppCRMWeb.Controllers
     {
         public DataManager _dataManagerFields;
         private readonly ILogger<DatamanagerController> _logger;
-        private readonly IQuickBooks _quickBooks;
+        private readonly IQuickBooksOnline _quickBooks;
         public DatamanagerController(ILogger<DatamanagerController> logger, IUnitOfWork unitOfWork, IHttpContextAccessor httpContext,
-            IQuickBooks quickBooks) : base(unitOfWork, httpContext)
+            IQuickBooksOnline quickBooks) : base(unitOfWork, httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks;

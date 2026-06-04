@@ -164,5 +164,10 @@ namespace App.Application.DTOs.Main_DTO
         [Display(Name = "Sales Rep")]
         public int SalesRep { get; set; }
 
+
+
+        [Display(Name = "Sales Rep")]
+        public string EmailAddress { get; set; }
+
     }
 }

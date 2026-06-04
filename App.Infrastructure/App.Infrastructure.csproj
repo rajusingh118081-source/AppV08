@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FastMember" Version="1.5.0" />
+    <PackageReference Include="IppDotNetSdkForQuickBooksApiV3" Version="14.7.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -22,13 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IRepository\Sec_Rep\" />
-    <Folder Include="IRepository\Sys_Rep\" />
     <Folder Include="Repository\Main_Services\" />
     <Folder Include="Repository\Sys_Services\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\App.Application\App.Application.csproj" />
+    <ProjectReference Include="..\App.Common\App.Common.csproj" />
     <ProjectReference Include="..\App.Domain\App.Domain.csproj" />
   </ItemGroup>
 

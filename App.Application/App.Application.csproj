@@ -8,20 +8,17 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Ref_DTO\" />
-    <Folder Include="ExternalServices\ShopifySync\" />
-    <Folder Include="ExternalServices\QBOSync\" />
+    <Folder Include="IRepository\Sys_Rep\" />
     <Folder Include="Mapping\Ref_Mapping\" />
-    <Folder Include="Services\Ref_Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
-    <PackageReference Include="IppDotNetSdkForQuickBooksApiV3" Version="14.7.1.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\App.Common\App.Common.csproj" />
     <ProjectReference Include="..\App.Domain\App.Domain.csproj" />
-    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
