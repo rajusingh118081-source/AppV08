@@ -8,13 +8,10 @@ namespace AppCRMWeb.Controllers
 {
     public class BaseController : Controller
     {
-        protected readonly IUnitOfWork _unitOfWork;
         protected Sec_Users CurrentUser;
         private readonly IHttpContextAccessor _httpContext;
-
-        public BaseController(IUnitOfWork unitOfWork, IHttpContextAccessor httpContext)
+        public BaseController(IHttpContextAccessor httpContext)
         {
-            _unitOfWork = unitOfWork;
             _httpContext = httpContext;
         }
 

@@ -1,4 +1,5 @@
-﻿using App.Domain;
+﻿using App.Common.GenericResponse;
+using App.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

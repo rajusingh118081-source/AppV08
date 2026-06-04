@@ -7,7 +7,7 @@ namespace AppCRMWeb.Controllers
     public class LoginController : BaseController
     {
         private readonly ILogger<LoginController> _logger;
-        public LoginController(ILogger<LoginController> logger, IUnitOfWork unitOfWork, IHttpContextAccessor httpContext) : base(unitOfWork, httpContext)
+        public LoginController(ILogger<LoginController> logger,IHttpContextAccessor httpContext) : base(httpContext)
         {
             _logger = logger;
         }

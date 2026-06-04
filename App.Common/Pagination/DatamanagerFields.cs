@@ -1,23 +1,18 @@
-﻿using App.Domain;
+﻿
+using App.Common.GenericResponse;
 
-namespace AppCRMWeb.Models
+namespace App.Common.Pagination
 {
-    public class DataManager : ViewBaseEntity
+    public class DatamanagerFields : ViewBaseEntity
     {
-        public DataManager()
-        {
-            this._ListData = new List<DataManager>();
-        }
-
         public string ControllerName { get; set; }
         public string DataManagerTitle { get; set; }
         public string FieldName { get; set; }
         public string ColumnHeading { get; set; }
         public int ShowOrderNumber { get; set; }
-        public int RefID { get; set; }
+        
         public string DefaultWidth { get; set; }
         public bool IsReadOnly { get; set; }
         public bool IsScreenType { get; set; }
-        public List<DataManager> _ListData { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace App.Repository.Repository.Sec_Rep
         {
             _dbContext = context;
         }
-        public async Task<PageResult<Sec_UsersDTO>> GetAllAsync(UserSearchRequest request)
+        public async Task<PageResult<Sec_UsersDTO>> ReadAllAsync(UserSearchRequest request)
         {
             var query = this.GetAllQueryable();   // 🔥 generic query
 

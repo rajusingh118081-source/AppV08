@@ -1,4 +1,4 @@
-﻿@model AppCRMWeb.Models.DataManager
+﻿@model App.Common.Pagination.DataManager
 @{
     ViewData["Title"] = "Data-Manager";
     string dataManagerTitleName = string.Empty;
@@ -50,15 +50,15 @@
     </div>
 </div>
 
-<partial name="_ModelPopup" />
-<script src="~/datamanagerjs/customjsmanage.js"></script>
+@* <partial name="_ModelPopup" /> *@
+<script src="~/datamanagerjs/customjsmanage.js" asp-append-version="true"></script>
 
 
 <script>
     validation.init("#formStock");
     var rowID = 0;
     var IsScreenType = "@IsScreenType";
-    var ControllerName = "Table_@Model.ControllerName";
+    var ControllerName = "@Model.ControllerName";
     var CurrentControllerName = "@Model.ControllerName";
     function CapToLowerCase(str) {
         return str

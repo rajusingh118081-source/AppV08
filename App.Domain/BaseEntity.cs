@@ -34,23 +34,5 @@ namespace App.Domain
         [NotMapped]
         public string? Description { get; set; }
     }
-    public class ViewBaseEntity
-    {
-        [Key]
-        public int ID { get; set; }
-        public string? UniqueNumber { get; set; }
-
-        [Display(Name = "Inactive")]
-        public bool IsInactive { get; set; }
-
-        public int RefAddedByID { get; set; }
-
-        public string? AddedDate { get; set; }
-
-        public int RefEditedByID { get; set; }
-        public string? RefEditedBy { get; set; }
-        public string? RefAddedBy { get; set; }
-
-        public string? EditedDate { get; set; }
-    }
+   
 }

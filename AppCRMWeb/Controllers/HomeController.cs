@@ -11,8 +11,8 @@ namespace AppCRMWeb.Controllers
 
         private readonly ILogger<HomeController> _logger;
         private readonly IQuickBooksOnline _quickBooks;
-        public HomeController(ILogger<HomeController> logger,IUnitOfWork unitOfWork,IHttpContextAccessor httpContext,
-            IQuickBooksOnline quickBooks) : base(unitOfWork, httpContext)
+        public HomeController(ILogger<HomeController> logger,IHttpContextAccessor httpContext,
+            IQuickBooksOnline quickBooks) : base(httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks;

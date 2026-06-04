@@ -17,7 +17,7 @@ namespace App.Application.IRepository.Sec_Rep
         /// Asynchronously retrieves all users from the database and returns them as a collection of Sec_UsersDTO objects.
         /// </summary>
         /// <returns></returns>
-        Task<PageResult<Sec_UsersDTO>> GetAllAsync(UserSearchRequest request);
+        Task<PageResult<Sec_UsersDTO>> ReadAllAsync(UserSearchRequest request);
 
         /// <summary>
         /// Asynchronously retrieves a user by their unique identifier (ID) from the database and returns it as a Sec_UsersDTO object. If the user is not found, it returns null.
