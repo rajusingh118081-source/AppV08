@@ -1,273 +1,689 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+
+    <link rel="shortcut icon"
+          href="~/favicon.ico"
+          type="image/x-icon" />
+
     <title>e-OneBazar</title>
 
-        <!-- Bootstrap and necessary plugins -->
-        <script src="~/vendors/js/jquery.min.js"></script>
-        <!-- Icons -->
-        <link href="~/vendors/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true">
-        <link href="~/vendors/css/simple-line-icons.min.css" rel="stylesheet" asp-append-version="true">
-        <!-- Main styles for this application -->
-        <link href="~/ToastrMessage/toastr.css" rel="stylesheet" asp-append-version="true" />
-        <link href="~/ToastrMessage/toastr.min.css" rel="stylesheet" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-        <link href="~/Editor/kendo.default-v2.min.css" rel="stylesheet" />
-        <script src="~/Editor/kendo.all.min.js"></script>
+    <!-- ========================================================= -->
+    <!-- JQUERY                                                    -->
+    <!-- ========================================================= -->
 
-        <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <script src="~/vendors/js/jquery.min.js"
+            asp-append-version="true"></script>
 
 
-    <!-- Styles required by this view -->
+    <!-- ========================================================= -->
+    <!-- ICONS                                                     -->
+    <!-- ========================================================= -->
+
+    <link href="~/vendors/css/font-awesome.min.css"
+          rel="stylesheet"
+          asp-append-version="true" />
+
+    <link href="~/vendors/css/simple-line-icons.min.css"
+          rel="stylesheet"
+          asp-append-version="true" />
+
+
+    <!-- ========================================================= -->
+    <!-- TOASTR CSS                                                -->
+    <!-- ========================================================= -->
+
+    <link href="~/ToastrMessage/toastr.min.css"
+          rel="stylesheet"
+          asp-append-version="true" />
+
+
+    <!-- ========================================================= -->
+    <!-- APPLICATION CSS                                           -->
+    <!-- ========================================================= -->
+
+    <link rel="stylesheet"
+          href="~/css/style.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/style.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/site.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/custom.css"
+          asp-append-version="true" />
+
+
+    <!-- ========================================================= -->
+    <!-- KENDO                                                     -->
+    <!-- ========================================================= -->
+
+    <link href="~/Editor/kendo.default-v2.min.css"
+          rel="stylesheet"
+          asp-append-version="true" />
+
+    <script src="~/Editor/kendo.all.min.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- PAGE SPECIFIC STYLES                                      -->
+    <!-- ========================================================= -->
+
     @RenderSection("Styles", required: false)
-    <link href="~/css/custom.css" rel="stylesheet" asp-append-version="true" />
+
 </head>
+
+
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 
-    <!-- *APP-HEADER* -->
-    <partial name="_AppHeader" />
-    <!-- /*APP-HEADER* -->
 
-    <div class="app-body" style="background:white;">
+    <!-- ========================================================= -->
+    <!-- HEADER                                                    -->
+    <!-- ========================================================= -->
+
+    <partial name="_AppHeader" />
+
+
+    <!-- ========================================================= -->
+    <!-- APP BODY                                                  -->
+    <!-- ========================================================= -->
+
+    <div class="app-body"
+         style="background:white;">
+
+        <!-- ===================================================== -->
+        <!-- SIDEBAR                                               -->
+        <!-- ===================================================== -->
+
         <div class="sidebar">
 
-            <!-- *SIDEBAR-NAV* -->
             <partial name="_SidebarNav" />
-            <!-- /*SIDEBAR-NAV* -->
 
-            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+            <button class="sidebar-minimizer brand-minimizer"
+                    type="button">
+            </button>
+
         </div>
 
-        <!-- *MAIN CONTENT* -->
+
+        <!-- ===================================================== -->
+        <!-- MAIN                                                   -->
+        <!-- ===================================================== -->
+
         <main class="main">
 
-            <!-- *BREADCRUMB* -->
+
+            <!-- ================================================= -->
+            <!-- BREADCRUMB                                         -->
+            <!-- ================================================= -->
+
             <partial name="_BreadCrumb" />
-            <!-- /*BREADCRUMB* -->
-            <!-- *CONTAINER-FLUID* -->
+
+
+            <!-- ================================================= -->
+            <!-- CONTAINER                                          -->
+            <!-- ================================================= -->
+
             <div class="container-fluid">
 
-                <!-- *PAGE* -->
                 @RenderBody()
-                <!-- /*PAGE* -->
 
             </div>
-            <!-- /*CONTAINER-FLUID* -->
+
 
         </main>
-        <!-- /*MAIN CONTENT* -->
-        <!-- *ASIDE-MENU* -->
+
+
+        <!-- ===================================================== -->
+        <!-- ASIDE MENU                                            -->
+        <!-- ===================================================== -->
+
         <partial name="_AsideMenu" />
-        <!-- /*ASIDE-MENU* -->
 
     </div>
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER                                                    -->
+    <!-- ========================================================= -->
+
     <footer class="app-footer">
-        <span><a href="#">e-<span class="logo_agile">OneBazar</a> © 2019 creativeLabs.</span>
-        <span class="ml-auto">Powered by <a href="http://marinecompliancesystem.com/">e-OneBazar</a></span>
+
+        <span>
+            <a href="#">
+                e-<span class="logo_agile">OneBazar</span>
+            </a>
+            © 2019 creativeLabs.
+        </span>
+
+        <span class="ml-auto">
+
+            Powered by
+
+            <a href="http://marinecompliancesystem.com/">
+                e-OneBazar
+            </a>
+
+        </span>
+
     </footer>
-    <script src="~/vendors/js/popper.min.js"></script>
-    <script src="~/vendors/js/bootstrap.min.js"></script>
-   @*  <script src="~/vendors/js/pace.min.js"></script> *@
-    <!-- Plugins and scripts required by all views -->
-    <script src="~/vendors/js/Chart.min.js"></script>
-    <!-- CoreUI main scripts -->
-    <script src="~/js/app.js"></script>
-    <script src="~/js/jquery-ui.min.js"/>
-    <!-- Plugins and scripts required by this views -->
-    <!-- Custom scripts required by this view -->
+
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT LIBRARIES                                      -->
+    <!-- ========================================================= -->
+
+    <script src="~/vendors/js/popper.min.js"
+            asp-append-version="true"></script>
+
+    <script src="~/vendors/js/bootstrap.min.js"
+            asp-append-version="true"></script>
+
+    <script src="~/vendors/js/Chart.min.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- CORE UI                                                   -->
+    <!-- ========================================================= -->
+
+    <script src="~/js/app.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- JQUERY UI                                                 -->
+    <!-- IMPORTANT: DO NOT USE />                                  -->
+    <!-- ========================================================= -->
+
+    <script src="~/js/jquery-ui.min.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- PAGE SPECIFIC SCRIPTS                                     -->
+    <!-- ========================================================= -->
+
     @RenderSection("Scripts", required: false)
-    <script src="~/js/bootstrap.js" asp-append-version="true"></script>
-    <script src="~/ToastrMessage/toastr.min.js"></script>
-    <script src="~/jshelper/helper.js"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- TOASTR                                                    -->
+    <!-- ========================================================= -->
+
+    <script src="~/ToastrMessage/toastr.min.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- HELPER                                                    -->
+    <!-- ========================================================= -->
+
+    <script src="~/jshelper/helper.js"
+            asp-append-version="true"></script>
+
+
+    <!-- ========================================================= -->
+    <!-- GLOBAL JAVASCRIPT                                         -->
+    <!-- ========================================================= -->
+
     <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
+
         $(document).ready(function () {
-            // create Editor from textarea HTML element with default set of tools
-            $("#Description").kendoEditor({
-                resizable: {
-                    content: true,
-                    toolbar: true
-                }
-            });
-            $("#Notes").kendoEditor({
-                resizable: {
-                    content: true,
-                    toolbar: true
-                }
-            });
 
-                toastr.options = getToastrOptions();
-                $('#toastr-success').click(function () {
-                    toastr.success('This is a success notification from toastr.')
-                });
 
-                $('#toastr-info').click(function () {
-                    toastr.info('This is an information notification provided by toastr.')
-                });
+            // =====================================================
+            // CHECK JQUERY
+            // =====================================================
 
-                $('#toastr-warning').click(function () {
-                    toastr.warning('This is a warning notification provided by toastr.')
-                });
+            console.log("jQuery loaded:",
+                typeof $ !== "undefined");
 
-                $('#toastr-error').click(function () {
-                    toastr.error('This is an error notification provided by toastr.')
-                });
-        });
 
-        $('.defaultNumericValue').focusout(function () {
-            var id = this.id
-            if (id != null) {
-                var inputValue = $("#" + id + "").val();
-                if (inputValue == '') {
-                    var assignvalue = $("#" + id + "");
-                    assignvalue.val(0);
-                }
+            // =====================================================
+            // CHECK TOASTR
+            // =====================================================
+
+            console.log("Toastr loaded:",
+                typeof toastr !== "undefined");
+
+
+            if (typeof toastr === "undefined") {
+
+                console.error(
+                    "ERROR: toastr.min.js is not loaded."
+                );
+
+                return;
             }
-        });
-        $('.defaultNumericValue').focus(function () {
-            var id = this.id
-            if (id != null) {
-                var inputValue = $("#" + id + "").val();
-                if (inputValue == "0") {
-                    var assignvalue = $("#" + id + "");
-                    assignvalue.val("");
-                }
+
+
+            // =====================================================
+            // TOASTR CONFIGURATION
+            // =====================================================
+
+            toastr.options = {
+
+                closeButton: true,
+
+                debug: false,
+
+                newestOnTop: true,
+
+                progressBar: true,
+
+                positionClass: "toast-top-right",
+
+                preventDuplicates: true,
+
+                onclick: null,
+
+                showDuration: "300",
+
+                hideDuration: "1000",
+
+                timeOut: "5000",
+
+                extendedTimeOut: "1000",
+
+                showEasing: "swing",
+
+                hideEasing: "linear",
+
+                showMethod: "fadeIn",
+
+                hideMethod: "fadeOut"
+
+            };
+
+
+            // =====================================================
+            // BOOTSTRAP TOOLTIP
+            // =====================================================
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+
+            // =====================================================
+            // KENDO DESCRIPTION EDITOR
+            // =====================================================
+
+            if ($("#Description").length > 0) {
+
+                $("#Description").kendoEditor({
+
+                    resizable: {
+                        content: true,
+                        toolbar: true
+                    }
+
+                });
+
             }
+
+
+            // =====================================================
+            // KENDO NOTES EDITOR
+            // =====================================================
+
+            if ($("#Notes").length > 0) {
+
+                $("#Notes").kendoEditor({
+
+                    resizable: {
+                        content: true,
+                        toolbar: true
+                    }
+
+                });
+
+            }
+
+
+            // =====================================================
+            // TOASTR SUCCESS BUTTON
+            // =====================================================
+
+            $("#toastr-success").on("click", function () {
+
+                toastr.success(
+                    "This is a success notification from toastr.",
+                    "Success"
+                );
+
+            });
+
+
+            // =====================================================
+            // TOASTR INFO BUTTON
+            // =====================================================
+
+            $("#toastr-info").on("click", function () {
+
+                toastr.info(
+                    "This is an information notification.",
+                    "Information"
+                );
+
+            });
+
+
+            // =====================================================
+            // TOASTR WARNING BUTTON
+            // =====================================================
+
+            $("#toastr-warning").on("click", function () {
+
+                toastr.warning(
+                    "This is a warning notification.",
+                    "Warning"
+                );
+
+            });
+
+
+            // =====================================================
+            // TOASTR ERROR BUTTON
+            // =====================================================
+
+            $("#toastr-error").on("click", function () {
+
+                toastr.error(
+                    "This is an error notification.",
+                    "Error"
+                );
+
+            });
+
+
+            // =====================================================
+            // TEMP DATA SUCCESS MESSAGE
+            // =====================================================
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <text>
+
+                    toastr.success(
+                        '@Html.Raw(TempData["SuccessMessage"])',
+                        "Success"
+                    );
+
+                </text>
+            }
+
+
+            // =====================================================
+            // TEMP DATA ERROR MESSAGE
+            // =====================================================
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <text>
+
+                    toastr.error(
+                        '@Html.Raw(TempData["ErrorMessage"])',
+                        "Error"
+                    );
+
+                </text>
+            }
+
+
+            // =====================================================
+            // TEMP DATA WARNING MESSAGE
+            // =====================================================
+
+            @if (TempData["WarningMessage"] != null)
+            {
+                <text>
+
+                    toastr.warning(
+                        '@Html.Raw(TempData["WarningMessage"])',
+                        "Warning"
+                    );
+
+                </text>
+            }
+
+
+            // =====================================================
+            // TEMP DATA INFO MESSAGE
+            // =====================================================
+
+            @if (TempData["InfoMessage"] != null)
+            {
+                <text>
+
+                    toastr.info(
+                        '@Html.Raw(TempData["InfoMessage"])',
+                        "Information"
+                    );
+
+                </text>
+            }
+
         });
+
+
+        // =========================================================
+        // DEFAULT NUMERIC VALUE - FOCUS OUT
+        // =========================================================
+
+        $(document).on(
+            "focusout",
+            ".defaultNumericValue",
+            function () {
+
+                var id = this.id;
+
+                if (id) {
+
+                    var inputValue = $("#" + id).val();
+
+                    if (inputValue === "") {
+
+                        $("#" + id).val(0);
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        // =========================================================
+        // DEFAULT NUMERIC VALUE - FOCUS
+        // =========================================================
+
+        $(document).on(
+            "focus",
+            ".defaultNumericValue",
+            function () {
+
+                var id = this.id;
+
+                if (id) {
+
+                    var inputValue = $("#" + id).val();
+
+                    if (inputValue === "0") {
+
+                        $("#" + id).val("");
+
+                    }
+
+                }
+
+            }
+        );
+
     </script>
+
+
 </body>
+
 </html>
+
+
 <style>
+
     .rounded-pill {
         border-radius: 20px;
     }
-    /*table#example thead {
-        border-bottom: 1px solid #dadada;
-        background: #f0f3f5;
-        color: #f7eeee;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 1.5px;
-    }*/
 
-    /*table#example tbody tr td {
-    }
 
-    #example_length {
-        display: none;
-    }
-
-    #example_filter {
-        display: none;
-    }*/
     tbody {
-    font-size: medium;
-}
+        font-size: medium;
+    }
+
+
     .logo_agile {
         color: #FF5722;
     }
-    /*.app-header.navbar .navbar-brand {
-        display: inline-block;
-        width: 155px;
-        padding: .5rem 1rem;
-        margin-right: 0;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 70px auto;
-    }*/
+
+
     .card-header {
+
         padding: 0.75rem 1.25rem;
+
         margin-bottom: 0;
+
         background-color: #ffffff;
+
         font-size: medium;
+
         color: #212b31;
+
     }
+
 
     .borderradius {
+
         border-radius: 17px !important;
+
         color: white !important;
+
         border: 1px solid white;
+
     }
-    /*.ManageHeader{
-    border-radius: 9px 9px 0px 3px;
-    background-color: #20a8d8;
-    }*/
-    /*.HeaderDesign{
-    border-radius: 17px;
-    padding-top: 8px;
-    border: 2px solid white;
-    background-color: #20a8d8;
-    }*/
+
+
     .main .container-fluid {
+
         padding: 1px 6px;
+
     }
+
 
     .breadcrumb {
-        display: -ms-flexbox;
+
         display: flex;
-        -ms-flex-wrap: wrap;
+
         flex-wrap: wrap;
+
         padding: 0.75rem 1rem;
+
         margin-bottom: 0.5rem;
+
         list-style: none;
+
         background-color: #fff;
+
     }
 
-    .card-body, .card-block {
-        -ms-flex: 1 1 auto;
+
+    .card-body,
+    .card-block {
+
         flex: 1 1 auto;
+
         padding: 0.50rem;
+
     }
+
 
     .field-validation-error {
         color: red;
     }
 
+
     .validation-summary-errors {
-        color: red
+        color: red;
     }
+
 
     input.input-validation-error,
     textarea.input-validation-error,
     select.input-validation-error {
+
         background: #FEF1EC;
+
         border: 1px solid #CD0A0A;
+
     }
+
 
     .validation-summary-errors ul {
+
         list-style: none;
-        margin-left: -40px
+
+        margin-left: -40px;
+
     }
+
 
     .custom-select {
+
         display: block;
+
         background-image: url("data:image/") !important;
+
     }
-   .Disabled {
-    pointer-events: none;
-    opacity: 0.8;
-    background-color: #c2cfd6;
-}
+
+
+    .Disabled {
+
+        pointer-events: none;
+
+        opacity: 0.8;
+
+        background-color: #c2cfd6;
+
+    }
+
 
     .modal-header {
+
         color: white;
+
         background: #20a8d8;
-        display: -ms-flexbox;
+
         display: flex;
-        -ms-flex-align: start;
+
         align-items: flex-start;
-        -ms-flex-pack: justify;
+
         justify-content: space-between;
+
         padding: 15px;
+
         border-bottom: 1px solid #c2cfd6;
+
     }
+
 </style>
