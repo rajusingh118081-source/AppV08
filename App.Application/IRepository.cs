@@ -8,24 +8,39 @@ using System.Threading.Tasks;
 
 namespace App.Application
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface IRepository<TEntity>
+        where TEntity : BaseEntity
     {
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        // Create
         Task<TEntity> AddAsync(TEntity entity);
+
+        Task AddRangeAsync(
+            IEnumerable<TEntity> entities);
+
+        // Update
         Task UpdateAsync(TEntity entity);
+
+        // Delete
         Task DeleteAsync(int id);
-        Task SaveChangesAsync();
 
-        //read side (could be in separate Readonly Generic Repository)
+        // Read
         Task<TEntity?> GetByIdAsync(int id);
-        Task<TEntity?> FindUniqueAsync(string uniqueNumber);
 
-        // This method was not in the videos, but I thought it would be useful to add.
-        TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity?> FindUniqueAsync(
+            string uniqueNumber);
 
+        Task<IEnumerable<TEntity>> GetAllAsync();
+
+        // Query
         IQueryable<TEntity> GetAllQueryable();
-        Task<IQueryable<TEntity>> GetAllQueryableAsync();
-        IEnumerable<T> ReadActive<T>() where T : BaseEntity;
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+
+        IQueryable<TEntity> Find(
+            Expression<Func<TEntity, bool>> predicate);
+
+        Task<TEntity?> SingleOrDefaultAsync(
+            Expression<Func<TEntity, bool>> predicate);
     }
+
+
+
 }

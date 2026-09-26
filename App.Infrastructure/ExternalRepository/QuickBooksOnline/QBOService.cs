@@ -1,5 +1,5 @@
 ﻿using App.Application.DTOs.Main_DTO;
-using App.Application.IExternalRepository;
+using App.Application.IExternalRepository.QuickBookOnline;
 using App.Domain.Entities;
 using Intuit.Ipp.OAuth2PlatformClient;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +28,8 @@ namespace App.Infrastructure.ExternalRepository.QBO
                 settings.RedirectUri,
                 settings.Environment);
             _logger.LogInformation("Customer Sync Started. CorrelationId:{CorrelationId}", _oauthClient.ClientID);
+
+
         }
 
         public string GetAuthorizationUrl()
@@ -38,13 +40,10 @@ namespace App.Infrastructure.ExternalRepository.QBO
             });
         }
 
-        public async Task SaveTokensAsync(string code, string realmId)
+        public async Task<TokenResponse> GetBearerTokenAsync(string code, string realmId)
         {
             var tokenResponse = await _oauthClient.GetBearerTokenAsync(code);
-
-            // Save Access Token
-            // Save Refresh Token
-            // Save RealmId
+            return tokenResponse;
         }
 
         public async Task<List<Main_ContactsDto>> GetCustomersAsync()

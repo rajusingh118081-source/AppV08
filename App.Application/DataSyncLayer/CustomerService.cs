@@ -1,5 +1,5 @@
 ﻿using App.Application.DTOs.Main_DTO;
-using App.Application.IExternalRepository;
+using App.Application.IExternalRepository.QuickBookOnline;
 using System;
 using System.Collections.Generic;
 using System.Text;

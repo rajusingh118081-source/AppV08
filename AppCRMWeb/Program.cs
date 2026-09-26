@@ -1,9 +1,14 @@
 using AapRepository;
+using App.Application;
+using App.Application.DataSyncLayer;
 using App.Application.IExternalRepository;
+using App.Application.IExternalRepository.QuickBookOnline;
 using App.Application.IRepository.Ref_Rep;
 using App.Application.IRepository.Sec_Rep;
 using App.Domain.Entities;
+using App.Domain.Entities.QuickBooksOnline;
 using App.Domain.Entities.Sec_Model;
+using App.Infrastructure;
 using App.Infrastructure.ExternalRepository.QBO;
 using App.Infrastructure.ExternalRepository.QuickBooksOnline;
 using App.Infrastructure.ExternalServices;
@@ -25,12 +30,26 @@ builder.Services.AddHttpContextAccessor();
 
 // Register UnitOfWork as Scoped
 builder.Services.AddScoped<Sec_Users>();
+
+builder.Services.AddScoped<QuickBooksToken>();
+
 builder.Services.AddHttpClient<IHttpService, HttpService>();
-builder.Services.Configure<QBOSettings>(builder.Configuration.GetSection("QuickBooks"));
-builder.Services.TryAddScoped<IQuickBooksOnline, QBOService>();
-builder.Services.AddHttpClient<IQuickBooksService, QuickBooksService>();
-builder.Services.AddScoped<IRefSysDataManagerRep, RefSysDataManagerRep>();
-builder.Services.AddScoped<IUserRep, UserRep>();
+
+builder.Services.Configure<QBOSettings>(
+builder.Configuration.GetSection("QuickBooks"));
+builder.Services.TryAddScoped<IQuickBooksOnline,QBOService>();
+builder.Services.AddHttpClient<IQuickBooksService,QuickBooksService>();
+builder.Services.AddScoped<IRefSysDataManagerRep,RefSysDataManagerRep>();
+builder.Services.AddScoped<IUserRep,UserRep>();
+builder.Services.AddScoped<IQuickBooksTokenRep,QuickBooksTokenRep>();
+// Generic Repository
+builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+// Unit Of Work  <-- MISSING
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+// Sync
+builder.Services.AddScoped<SyncDataQuickBooksToken>();
+
+
 //builder.Services.AddHttpClient<IQuickBooksService, QuickBooksService>();
 // Build the app
 var app = builder.Build();

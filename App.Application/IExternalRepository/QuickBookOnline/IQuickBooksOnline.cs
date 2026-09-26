@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace App.Application.IExternalRepository
+using Intuit.Ipp.OAuth2PlatformClient;
+namespace App.Application.IExternalRepository.QuickBookOnline
 {
     public interface IQuickBooksOnline
     {
         string GetAuthorizationUrl();
 
-        Task SaveTokensAsync(string authorizationCode, string realmId);
+        Task<TokenResponse> GetBearerTokenAsync(string authorizationCode, string realmId);
 
         Task<List<Main_ContactsDto>> GetCustomersAsync();
 
