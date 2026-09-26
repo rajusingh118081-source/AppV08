@@ -1,6 +1,6 @@
 using AapRepository;
-using App.Application.DataSyncLayer;
 using App.Application.IExternalRepository.QuickBookOnline;
+using App.Application.Services.QuickBooks;
 using App.Infrastructure.ExternalRepository.QBO;
 using AppCRMWeb.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +15,14 @@ namespace AppCRMWeb.Controllers
         private readonly IQuickBooksOnline _quickBooks;
         private readonly IQuickBooksTokenRep _quickBooksToken;
         private readonly SyncDataQuickBooksToken _syncDataToken;
+        private readonly SyncDataQuickBooksCustomer _syncDataCustomer;
         public HomeController(ILogger<HomeController> logger,IHttpContextAccessor httpContext,
-            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken) : base(httpContext)
+            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken, SyncDataQuickBooksCustomer syncDataCustomer) : base(httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks; 
             _syncDataToken = syncDataToken;
+            _syncDataCustomer = syncDataCustomer;
         }
 
         public async Task<IActionResult> Index()
@@ -35,6 +37,12 @@ namespace AppCRMWeb.Controllers
             return Json(qboOnle);
         }
 
+        public async Task<IActionResult> QuickBookOnlineCustomer()
+        {
+            //[FromQuery] UserSearchRequest request
+            var tokenResponse = await _syncDataCustomer.GetCustomersAsync();
+            return Json(tokenResponse);
+        }
         [HttpGet]
         public async Task<ActionResult> Callback(string code,string state,string realmId)
         {

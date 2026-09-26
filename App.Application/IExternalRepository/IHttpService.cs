@@ -7,17 +7,9 @@ namespace App.Application.IExternalRepository
     public interface IHttpService
     {
         Task<T?> GetAsync<T>( string url,Dictionary<string, string>? headers = null);
-
-        Task<TResponse?> PostAsync<TRequest, TResponse>(string url,TRequest request,
-            Dictionary<string, string>? headers = null);
-
-        Task<TResponse?> PutAsync<TRequest, TResponse>(
-            string url,
-            TRequest request,
-            Dictionary<string, string>? headers = null);
-
-        Task DeleteAsync(
-            string url,
-            Dictionary<string, string>? headers = null);
+        Task<TResponse?> PostAsync<TRequest, TResponse>(string url,TRequest request,Dictionary<string, string>? headers = null);
+        Task<TResponse?> PutAsync<TRequest, TResponse>(string url,TRequest request,Dictionary<string, string>? headers = null);
+        Task DeleteAsync(string url,Dictionary<string, string>? headers = null);
+        Task<TResponse?> PostFormAsync<TResponse>(string url,Dictionary<string, string> formData,Dictionary<string, string>? headers = null);
     }
 }

@@ -1,10 +1,10 @@
 using AapRepository;
 using App.Application;
-using App.Application.DataSyncLayer;
 using App.Application.IExternalRepository;
 using App.Application.IExternalRepository.QuickBookOnline;
 using App.Application.IRepository.Ref_Rep;
 using App.Application.IRepository.Sec_Rep;
+using App.Application.Services.QuickBooks;
 using App.Domain.Entities;
 using App.Domain.Entities.QuickBooksOnline;
 using App.Domain.Entities.Sec_Model;
@@ -16,6 +16,7 @@ using App.Infrastructure.Repository.Ref_Services;
 using App.Repository.Repository.Sec_Rep;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,12 +34,17 @@ builder.Services.AddScoped<Sec_Users>();
 
 builder.Services.AddScoped<QuickBooksToken>();
 
-builder.Services.AddHttpClient<IHttpService, HttpService>();
+builder.Services.AddHttpClient<IHttpService, HttpService>(
+    (serviceProvider, client) =>
+    {
+        var settings =serviceProvider.GetRequiredService<IOptions<QBOSettings>>().Value;
+        client.BaseAddress =new Uri(settings.BaseUrl);
+        client.Timeout =TimeSpan.FromSeconds(60);
+    });
 
 builder.Services.Configure<QBOSettings>(
 builder.Configuration.GetSection("QuickBooks"));
 builder.Services.TryAddScoped<IQuickBooksOnline,QBOService>();
-builder.Services.AddHttpClient<IQuickBooksService,QuickBooksService>();
 builder.Services.AddScoped<IRefSysDataManagerRep,RefSysDataManagerRep>();
 builder.Services.AddScoped<IUserRep,UserRep>();
 builder.Services.AddScoped<IQuickBooksTokenRep,QuickBooksTokenRep>();
@@ -48,6 +54,10 @@ builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 // Sync
 builder.Services.AddScoped<SyncDataQuickBooksToken>();
+builder.Services.AddScoped<SyncDataQuickBooksCustomer>();
+builder.Services.AddScoped<IQuickBooksCustomerRep, QuickBooksCustomerRep>();
+
+
 
 
 //builder.Services.AddHttpClient<IQuickBooksService, QuickBooksService>();

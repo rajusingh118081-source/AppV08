@@ -15,7 +15,7 @@ namespace App.Domain
         [Column(TypeName = "nvarchar(50)")]
         [StringLength(50)]
         [Display(Name = "Unique Number")]
-        public required string UniqueNumber { get; set; }
+        public string UniqueNumber { get; set; }
 
         [Display(Name = "Inactive")]
         public bool IsInactive { get; set; }

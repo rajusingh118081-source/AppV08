@@ -2,7 +2,7 @@
 using App.Common.GenericResponse;
 using App.Domain.Entities.QuickBooksOnline;
 
-namespace App.Application.DataSyncLayer
+namespace App.Application.Services.QuickBooks
 {
     public class SyncDataQuickBooksToken
     {

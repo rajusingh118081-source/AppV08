@@ -19,7 +19,7 @@ namespace App.Application.IExternalRepository.QuickBookOnline
         Task<Response> CreateAsync(QuickBooksToken quickBooksToken);
         Task<Response> UpdateTokenAsync(QuickBooksToken quickBooksToken);
 
-        Task<QuickBooksToken?> GetByRealmIdAsync(string realmId);
+        Task<QuickBooksToken> GetByRealmIdAsync(string realmId);
 
         Task<Response> AddOrUpdateAsync(QuickBooksToken quickBooksToken);
     }

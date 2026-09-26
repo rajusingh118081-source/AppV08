@@ -16,21 +16,25 @@ namespace App.Infrastructure.ExternalServices
             _httpClient = httpClient;
         }
 
-        public async Task<T?> GetAsync<T>(
-            string url,
-            Dictionary<string, string>? headers = null)
+        public async Task<T?> GetAsync<T>(string url,Dictionary<string, string>? headers = null)
         {
-            var request = new HttpRequestMessage(
-                HttpMethod.Get,
-                url);
+            using var request = new HttpRequestMessage(HttpMethod.Get,url);
 
             AddHeaders(request, headers);
 
-            var response = await _httpClient.SendAsync(request);
-
-            response.EnsureSuccessStatusCode();
+            using var response = await _httpClient.SendAsync(request);
 
             var content = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HandleHttpException(
+                    response.StatusCode,
+                    content);
+            }
+
+            if (string.IsNullOrWhiteSpace(content))
+                return default;
 
             return JsonSerializer.Deserialize<T>(
                 content,
@@ -45,7 +49,7 @@ namespace App.Infrastructure.ExternalServices
             TRequest request,
             Dictionary<string, string>? headers = null)
         {
-            var httpRequest = new HttpRequestMessage(
+            using var httpRequest = new HttpRequestMessage(
                 HttpMethod.Post,
                 url);
 
@@ -56,13 +60,67 @@ namespace App.Infrastructure.ExternalServices
                 Encoding.UTF8,
                 "application/json");
 
-            var response = await _httpClient.SendAsync(httpRequest);
+            using var response =
+                await _httpClient.SendAsync(httpRequest);
 
-            response.EnsureSuccessStatusCode();
+            var content =
+                await response.Content.ReadAsStringAsync();
 
-            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HandleHttpException(
+                    response.StatusCode,
+                    content);
+            }
 
-            return JsonSerializer.Deserialize<TResponse>(content);
+            if (string.IsNullOrWhiteSpace(content))
+                return default;
+
+            return JsonSerializer.Deserialize<TResponse>(
+                content,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+        }
+
+        // For QuickBooks OAuth token API
+        public async Task<TResponse?> PostFormAsync<TResponse>(
+            string url,
+            Dictionary<string, string> formData,
+            Dictionary<string, string>? headers = null)
+        {
+            using var request = new HttpRequestMessage(
+                HttpMethod.Post,
+                url);
+
+            AddHeaders(request, headers);
+
+            request.Content =
+                new FormUrlEncodedContent(formData);
+
+            using var response =
+                await _httpClient.SendAsync(request);
+
+            var content =
+                await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HandleHttpException(
+                    response.StatusCode,
+                    content);
+            }
+
+            if (string.IsNullOrWhiteSpace(content))
+                return default;
+
+            return JsonSerializer.Deserialize<TResponse>(
+                content,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
         }
 
         public async Task<TResponse?> PutAsync<TRequest, TResponse>(
@@ -70,7 +128,7 @@ namespace App.Infrastructure.ExternalServices
             TRequest request,
             Dictionary<string, string>? headers = null)
         {
-            var httpRequest = new HttpRequestMessage(
+            using var httpRequest = new HttpRequestMessage(
                 HttpMethod.Put,
                 url);
 
@@ -81,35 +139,60 @@ namespace App.Infrastructure.ExternalServices
                 Encoding.UTF8,
                 "application/json");
 
-            var response = await _httpClient.SendAsync(httpRequest);
+            using var response =
+                await _httpClient.SendAsync(httpRequest);
 
-            response.EnsureSuccessStatusCode();
+            var content =
+                await response.Content.ReadAsStringAsync();
 
-            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HandleHttpException(
+                    response.StatusCode,
+                    content);
+            }
 
-            return JsonSerializer.Deserialize<TResponse>(content);
+            if (string.IsNullOrWhiteSpace(content))
+                return default;
+
+            return JsonSerializer.Deserialize<TResponse>(
+                content,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
         }
 
         public async Task DeleteAsync(
             string url,
             Dictionary<string, string>? headers = null)
         {
-            var request = new HttpRequestMessage(
+            using var request = new HttpRequestMessage(
                 HttpMethod.Delete,
                 url);
 
             AddHeaders(request, headers);
 
-            var response = await _httpClient.SendAsync(request);
+            using var response =
+                await _httpClient.SendAsync(request);
 
-            response.EnsureSuccessStatusCode();
+            var content =
+                await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HandleHttpException(
+                    response.StatusCode,
+                    content);
+            }
         }
 
         private static void AddHeaders(
             HttpRequestMessage request,
             Dictionary<string, string>? headers)
         {
-            if (headers == null) return;
+            if (headers == null)
+                return;
 
             foreach (var header in headers)
             {

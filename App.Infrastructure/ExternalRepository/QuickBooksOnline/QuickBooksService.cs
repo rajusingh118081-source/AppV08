@@ -9,7 +9,7 @@ using System.Text;
 
 namespace App.Infrastructure.ExternalRepository.QuickBooksOnline
 {
-    public class QuickBooksService : IQuickBooksService
+    public class QuickBooksService
     {
         private readonly HttpClient _httpClient;
         private readonly QBOSettings _settings;

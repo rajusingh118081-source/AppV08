@@ -4,17 +4,15 @@ using System.Text;
 
 namespace App.Domain.Entities.Main_Model
 {
-    public class Main_Invoices
+    public class Main_Invoices: BaseEntity
     {
-        public int Id { get; set; }
+        public string QboInvoiceID { get; set; } = null!;
 
-        public string QboInvoiceId { get; set; } = null!;
+        public string CustomerQboID { get; set; }
 
-        public string? CustomerQboId { get; set; }
+        public DateTime TxnDate { get; set; }
 
-        public DateTime? TxnDate { get; set; }
-
-        public decimal? TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

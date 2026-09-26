@@ -96,6 +96,7 @@
                         <button type="button" id="toastr-warning">warning </button>
                         <button type="button" id="toastr-error"> error</button>
                         <button type="button" id="btn_QuickBookOnlineConnect"> Quick Book Online Connect</button>
+                        <button type="button" id="btn_QuickBookOnlineCustomer"> Quick Book Online Customer</button>
                     </div>
                 </div>
                 <!--/.col-->
@@ -130,6 +131,23 @@
         });
     });
 
+    $("#btn_QuickBookOnlineCustomer").on("click", function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "/Home/QuickBookOnlineCustomer",
+                type: "GET",
+                success: function(response) {
+                    debugger;
+                    if (response) {
+                        window.location.href = response;
+                    }
+                },
+                error: function(xhr) {
+                    console.error("Error:", xhr);
+                }
+            });
+        });
 </script>
 <style>
     .dashboard-card {
