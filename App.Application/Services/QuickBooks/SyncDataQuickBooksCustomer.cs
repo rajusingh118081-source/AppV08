@@ -13,6 +13,7 @@ namespace App.Application.Services.QuickBooks
         private readonly IQuickBooksCustomerRep _quickBooks;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<SyncDataQuickBooksCustomer> _logger;
+
         public SyncDataQuickBooksCustomer(IQuickBooksCustomerRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncDataQuickBooksCustomer> logger)
         {
             _quickBooks = quickBooks?? throw new ArgumentNullException(nameof(quickBooks));
@@ -38,7 +39,7 @@ namespace App.Application.Services.QuickBooks
                         Message = "No customers found in QuickBooks."
                     };
                 }
-                _logger.LogInformation("Retrieved {CustomerCount} customers from QuickBooks.",customers.Count);
+                _logger.LogInformation("Retrieved {CustomerCount} customers from QuickBooks.", customers.Count);
 
                 int added = 0;
                 int updated = 0;
@@ -75,11 +76,11 @@ namespace App.Application.Services.QuickBooks
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex,"Error processing QuickBooks customer. QuickBooksId: {QuickBooksId}",customer.Id);
+                        _logger.LogError(ex, "Error processing QuickBooks customer. QuickBooksId: {QuickBooksId}", customer.Id);
                         throw;
                     }
                 }
-                _logger.LogInformation("Customer processing completed. Added: {Added}, Updated: {Updated}.",added,updated);
+                _logger.LogInformation("Customer processing completed. Added: {Added}, Updated: {Updated}.", added, updated);
 
                 // 3. Commit all changes
                 _logger.LogInformation("Saving customer sync changes to database.");
@@ -94,20 +95,20 @@ namespace App.Application.Services.QuickBooks
                 return new Response
                 {
                     Status = true,
-                    Message =$"Customer sync completed. " +$"Added: {added}, Updated: {updated}."
+                    Message = $"Customer sync completed. " + $"Added: {added}, Updated: {updated}."
                 };
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex,"QuickBooks customer sync failed.");
+                _logger.LogError(ex, "QuickBooks customer sync failed.");
 
                 return new Response
                 {
                     Status = false,
-                    Message =$"Customer sync failed: {ex.Message}"
+                    Message = $"Customer sync failed: {ex.Message}"
                 };
             }
-        #endregion
         }
+        #endregion
     }
 }
