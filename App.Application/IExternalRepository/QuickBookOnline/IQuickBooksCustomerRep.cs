@@ -8,6 +8,10 @@ namespace App.Application.IExternalRepository.QuickBookOnline
 {
     public interface IQuickBooksCustomerRep
     {
+        /// <summary>
+        /// This method retrieves a list of customers from QuickBooks Online asynchronously.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of QuickBooksCustomerDto objects.</returns>
         Task<List<QuickBooksCustomerDto>> GetCustomersAsync();
     }
 

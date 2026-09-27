@@ -13,10 +13,7 @@ namespace App.Application.Services.QuickBooks
         private readonly IQuickBooksCustomerRep _quickBooks;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<SyncDataQuickBooksCustomer> _logger;
-        public SyncDataQuickBooksCustomer(
-            IQuickBooksCustomerRep quickBooks,
-            IUnitOfWork unitOfWork,
-            ILogger<SyncDataQuickBooksCustomer> logger)
+        public SyncDataQuickBooksCustomer(IQuickBooksCustomerRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncDataQuickBooksCustomer> logger)
         {
             _quickBooks = quickBooks?? throw new ArgumentNullException(nameof(quickBooks));
             _unitOfWork = unitOfWork?? throw new ArgumentNullException(nameof(unitOfWork));
@@ -82,10 +79,7 @@ namespace App.Application.Services.QuickBooks
                         throw;
                     }
                 }
-                _logger.LogInformation(
-                    "Customer processing completed. Added: {Added}, Updated: {Updated}.",
-                    added,
-                    updated);
+                _logger.LogInformation("Customer processing completed. Added: {Added}, Updated: {Updated}.",added,updated);
 
                 // 3. Commit all changes
                 _logger.LogInformation("Saving customer sync changes to database.");
