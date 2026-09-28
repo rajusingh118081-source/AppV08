@@ -79,5 +79,12 @@ namespace App.Common.Utilities
         {
             return decimal.Round(val, 2, MidpointRounding.AwayFromZero);
         }
+        public static DateTime? ParseDate(string? value)
+        {
+            if (DateTime.TryParse(value, out var date))
+                return date;
+
+            return null;
+        }
     }
 }

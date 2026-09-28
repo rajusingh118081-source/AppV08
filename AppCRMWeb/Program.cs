@@ -1,5 +1,6 @@
 using AapRepository;
 using App.Application;
+using App.Application.BulkColumnMapping;
 using App.Application.IExternalRepository;
 using App.Application.IExternalRepository.QuickBookOnline;
 using App.Application.IRepository.Ref_Rep;
@@ -56,8 +57,9 @@ builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddScoped<SyncDataQuickBooksToken>();
 builder.Services.AddScoped<SyncDataQuickBooksCustomer>();
 builder.Services.AddScoped<IQuickBooksCustomerRep, QuickBooksCustomerRep>();
-
-
+builder.Services.AddScoped<IBulkUpsertService, BulkUpsertService>();
+builder.Services.AddScoped<SyncDataQuickBooksInvoice>();
+builder.Services.AddScoped<IQuickBooksInvoiceRep, QuickBooksInvoiceRep>();
 
 
 //builder.Services.AddHttpClient<IQuickBooksService, QuickBooksService>();

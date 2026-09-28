@@ -16,13 +16,15 @@ namespace AppCRMWeb.Controllers
         private readonly IQuickBooksTokenRep _quickBooksToken;
         private readonly SyncDataQuickBooksToken _syncDataToken;
         private readonly SyncDataQuickBooksCustomer _syncDataCustomer;
+        private readonly SyncDataQuickBooksInvoice _syncDataInvoice;
         public HomeController(ILogger<HomeController> logger,IHttpContextAccessor httpContext,
-            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken, SyncDataQuickBooksCustomer syncDataCustomer) : base(httpContext)
+            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken, SyncDataQuickBooksCustomer syncDataCustomer, SyncDataQuickBooksInvoice syncDataInvoice) : base(httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks; 
             _syncDataToken = syncDataToken;
             _syncDataCustomer = syncDataCustomer;
+            _syncDataInvoice = syncDataInvoice;
         }
 
         public async Task<IActionResult> Index()
@@ -41,7 +43,8 @@ namespace AppCRMWeb.Controllers
         {
             //[FromQuery] UserSearchRequest request
             var tokenResponse = await _syncDataCustomer.GetCustomersAsync();
-            return Json(tokenResponse);
+            var tokenResponse1 = await _syncDataInvoice.GetInvoicesAsync();
+            return Json(tokenResponse1);
         }
         [HttpGet]
         public async Task<ActionResult> Callback(string code,string state,string realmId)
