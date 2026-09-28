@@ -105,149 +105,149 @@ namespace App.Application.Services.QuickBooks
         {
             return new[]
             {
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "QuickBooksId",
-            typeof(string),
-            x => x.Id,
-            isKey: true,
-            update: false),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "QuickBooksId",
+                    typeof(string),
+                    x => x.Id,
+                    isKey: true,
+                    update: false),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "SyncToken",
-            typeof(string),
-            x => x.SyncToken),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "SyncToken",
+                    typeof(string),
+                    x => x.SyncToken),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "InvoiceNumber",
-            typeof(string),
-            x => x.DocNumber),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "InvoiceNumber",
+                    typeof(string),
+                    x => x.DocNumber),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "InvoiceDate",
-            typeof(DateTime),
-            x => DecimalRounding.ParseDate(x.TxnDate)),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "InvoiceDate",
+                    typeof(DateTime),
+                    x => DecimalRounding.ParseDate(x.TxnDate)),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "DueDate",
-            typeof(DateTime),
-            x => DecimalRounding.ParseDate(x.DueDate)),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "DueDate",
+                    typeof(DateTime),
+                    x => DecimalRounding.ParseDate(x.DueDate)),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "TotalAmount",
-            typeof(decimal),
-            x => x.TotalAmt),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "TotalAmount",
+                    typeof(decimal),
+                    x => x.TotalAmt),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "Balance",
-            typeof(decimal),
-            x => x.Balance),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "Balance",
+                    typeof(decimal),
+                    x => x.Balance),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "CustomerQuickBooksId",
-            typeof(string),
-            x => x.CustomerRef?.Value),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "CustomerQuickBooksId",
+                    typeof(string),
+                    x => x.CustomerRef?.Value),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "CustomerName",
-            typeof(string),
-            x => x.CustomerRef?.Name),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "CustomerName",
+                    typeof(string),
+                    x => x.CustomerRef?.Name),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "CurrencyCode",
-            typeof(string),
-            x => x.CurrencyRef?.Value),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "CurrencyCode",
+                    typeof(string),
+                    x => x.CurrencyRef?.Value),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "PrivateNote",
-            typeof(string),
-            x => x.PrivateNote),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "PrivateNote",
+                    typeof(string),
+                    x => x.PrivateNote),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "TxnStatus",
-            typeof(string),
-            x => x.TxnStatus),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "TxnStatus",
+                    typeof(string),
+                    x => x.TxnStatus),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "CreatedTime",
-            typeof(DateTime),
-            x => x.MetaData?.CreateTime),
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "CreatedTime",
+                    typeof(DateTime),
+                    x => x.MetaData?.CreateTime),
 
-        BulkMapping.Column<QuickBooksInvoiceDto>(
-            "LastUpdatedTime",
-            typeof(DateTime),
-            x => x.MetaData?.LastUpdatedTime)
-    };
+                BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "LastUpdatedTime",
+                    typeof(DateTime),
+                    x => x.MetaData?.LastUpdatedTime)
+            };
         }
 
         private static IReadOnlyCollection<BulkColumnMapping<QuickBooksInvoiceLineDto>>GetInvoiceLineMappings()
         {
             return new[]
             {
-        // Composite key - Invoice
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "InvoiceQuickBooksId",
-            typeof(string),
-            x => x.InvoiceQuickBooksId,
-            isKey: true,
-            update: false),
+                // Composite key - Invoice
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "InvoiceQuickBooksId",
+                    typeof(string),
+                    x => x.InvoiceQuickBooksId,
+                    isKey: true,
+                    update: false),
 
-        // Composite key - Line
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "QuickBooksLineId",
-            typeof(string),
-            x => x.Id,
-            isKey: true,
-            update: false),
+                // Composite key - Line
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "QuickBooksLineId",
+                    typeof(string),
+                    x => x.Id,
+                    isKey: true,
+                    update: false),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "Description",
-            typeof(string),
-            x => x.Description),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "Description",
+                    typeof(string),
+                    x => x.Description),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "DetailType",
-            typeof(string),
-            x => x.DetailType),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "DetailType",
+                    typeof(string),
+                    x => x.DetailType),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "Amount",
-            typeof(decimal),
-            x => x.Amount),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "Amount",
+                    typeof(decimal),
+                    x => x.Amount),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "ItemQuickBooksId",
-            typeof(string),
-            x => x.SalesItemLineDetail?
-                .ItemRef?.Value),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "ItemQuickBooksId",
+                    typeof(string),
+                    x => x.SalesItemLineDetail?
+                        .ItemRef?.Value),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "ItemName",
-            typeof(string),
-            x => x.SalesItemLineDetail?
-                .ItemRef?.Name),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "ItemName",
+                    typeof(string),
+                    x => x.SalesItemLineDetail?
+                        .ItemRef?.Name),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "Quantity",
-            typeof(decimal),
-            x => x.SalesItemLineDetail?.Qty),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "Quantity",
+                    typeof(decimal),
+                    x => x.SalesItemLineDetail?.Qty),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "UnitPrice",
-            typeof(decimal),
-            x => x.SalesItemLineDetail?.UnitPrice),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "UnitPrice",
+                    typeof(decimal),
+                    x => x.SalesItemLineDetail?.UnitPrice),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "TaxCodeQuickBooksId",
-            typeof(string),
-            x => x.SalesItemLineDetail?
-                .TaxCodeRef?.Value),
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "TaxCodeQuickBooksId",
+                    typeof(string),
+                    x => x.SalesItemLineDetail?
+                        .TaxCodeRef?.Value),
 
-        BulkMapping.Column<QuickBooksInvoiceLineDto>(
-            "TaxCodeName",
-            typeof(string),
-            x => x.SalesItemLineDetail?
-                .TaxCodeRef?.Name)
-    };
+                BulkMapping.Column<QuickBooksInvoiceLineDto>(
+                    "TaxCodeName",
+                    typeof(string),
+                    x => x.SalesItemLineDetail?
+                        .TaxCodeRef?.Name)
+            };
         }
     }
 }
