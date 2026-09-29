@@ -29,7 +29,7 @@ namespace App.Infrastructure.ExternalRepository.QuickBooksOnline
         {
             QuickBooksToken quickBooksToken = new QuickBooksToken();
             var allInvoices = new List<QuickBooksInvoiceDto>();
-            DateTime fromDate = DateTime.UtcNow.AddDays(-30);
+            DateTime fromDate = DateTime.UtcNow.AddDays(-50);
             const int pageSize = 10;
             int startPosition = 1;
             int pageNumber = 1;

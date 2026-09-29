@@ -17,8 +17,19 @@ namespace App.Application.IExternalRepository.QuickBookOnline
         /// <param name="quickBooksToken"></param>
         /// <returns></returns>
         Task<Response> CreateAsync(QuickBooksToken quickBooksToken);
+
+        /// <summary>
+        /// This method is used to update an existing QuickBooks token in the database.
+        /// </summary>
+        /// <param name="quickBooksToken"></param>
+        /// <returns></returns>
         Task<Response> UpdateTokenAsync(QuickBooksToken quickBooksToken);
 
+        /// <summary>
+        /// This method is used to get a QuickBooks token by realmId from the database.
+        /// </summary>
+        /// <param name="realmId"></param>
+        /// <returns></returns>
         Task<QuickBooksToken> GetByRealmIdAsync(string realmId);
 
         Task<Response> AddOrUpdateAsync(QuickBooksToken quickBooksToken);

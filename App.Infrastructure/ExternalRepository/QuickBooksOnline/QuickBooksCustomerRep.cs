@@ -35,7 +35,7 @@ namespace App.Infrastructure.ExternalRepository.QuickBooksOnline
         {
             QuickBooksToken quickBooksToken = new QuickBooksToken();
             var allCustomers = new List<QuickBooksCustomerDto>();
-            DateTime fromDate = DateTime.UtcNow.AddDays(-50);
+            DateTime fromDate = DateTime.UtcNow.AddDays(-100);
             const int pageSize = 10;
             int startPosition = 1;
             int pageNumber = 1;
