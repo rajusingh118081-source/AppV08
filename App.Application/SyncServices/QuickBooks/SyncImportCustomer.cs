@@ -10,13 +10,13 @@ using System.Text;
 
 namespace App.Application.Services.QuickBooks
 {
-    public class SyncDataQuickBooksCustomer
+    public class SyncImportCustomer
     {
         private readonly IQuickBooksCustomerRep _quickBooks;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<SyncDataQuickBooksCustomer> _logger;
+        private readonly ILogger<SyncImportCustomer> _logger;
         private readonly IBulkUpsertService _bulkUpsertService;
-        public SyncDataQuickBooksCustomer(IQuickBooksCustomerRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncDataQuickBooksCustomer> logger
+        public SyncImportCustomer(IQuickBooksCustomerRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncImportCustomer> logger
             ,IBulkUpsertService bulkUpsertService)
         {
             _quickBooks = quickBooks?? throw new ArgumentNullException(nameof(quickBooks));

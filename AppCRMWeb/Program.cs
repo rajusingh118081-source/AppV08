@@ -55,10 +55,10 @@ builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 // Sync
 builder.Services.AddScoped<SyncDataQuickBooksToken>();
-builder.Services.AddScoped<SyncDataQuickBooksCustomer>();
+builder.Services.AddScoped<SyncImportCustomer>();
 builder.Services.AddScoped<IQuickBooksCustomerRep, QuickBooksCustomerRep>();
 builder.Services.AddScoped<IBulkUpsertService, BulkUpsertService>();
-builder.Services.AddScoped<SyncDataQuickBooksInvoice>();
+builder.Services.AddScoped<SyncImportInvoice>();
 builder.Services.AddScoped<IQuickBooksInvoiceRep, QuickBooksInvoiceRep>();
 
 

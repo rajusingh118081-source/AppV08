@@ -11,13 +11,13 @@ using System.Text;
 
 namespace App.Application.Services.QuickBooks
 {
-    public class SyncDataQuickBooksInvoice
+    public class SyncImportInvoice
     {
         private readonly IQuickBooksInvoiceRep _quickBooks;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<SyncDataQuickBooksInvoice> _logger;
+        private readonly ILogger<SyncImportInvoice> _logger;
         private readonly IBulkUpsertService _bulkUpsertService;
-        public SyncDataQuickBooksInvoice(IQuickBooksInvoiceRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncDataQuickBooksInvoice> logger
+        public SyncImportInvoice(IQuickBooksInvoiceRep quickBooks,IUnitOfWork unitOfWork,ILogger<SyncImportInvoice> logger
             ,IBulkUpsertService bulkUpsertService)
         {
             _quickBooks = quickBooks?? throw new ArgumentNullException(nameof(quickBooks));
@@ -133,9 +133,19 @@ namespace App.Application.Services.QuickBooks
                     x => DecimalRounding.ParseDate(x.DueDate)),
 
                 BulkMapping.Column<QuickBooksInvoiceDto>(
+                   "Subtotal",
+                    typeof(decimal),
+                    x => x.TotalAmt - (x.TxnTaxDetail?.TotalTax ?? 0)),
+
+                  BulkMapping.Column<QuickBooksInvoiceDto>(
                     "TotalAmount",
                     typeof(decimal),
                     x => x.TotalAmt),
+
+                    BulkMapping.Column<QuickBooksInvoiceDto>(
+                    "TotalTax",
+                    typeof(decimal),
+                    x => x.TxnTaxDetail?.TotalTax),
 
                 BulkMapping.Column<QuickBooksInvoiceDto>(
                     "Balance",

@@ -15,10 +15,10 @@ namespace AppCRMWeb.Controllers
         private readonly IQuickBooksOnline _quickBooks;
         private readonly IQuickBooksTokenRep _quickBooksToken;
         private readonly SyncDataQuickBooksToken _syncDataToken;
-        private readonly SyncDataQuickBooksCustomer _syncDataCustomer;
-        private readonly SyncDataQuickBooksInvoice _syncDataInvoice;
+        private readonly SyncImportCustomer _syncDataCustomer;
+        private readonly SyncImportInvoice _syncDataInvoice;
         public HomeController(ILogger<HomeController> logger,IHttpContextAccessor httpContext,
-            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken, SyncDataQuickBooksCustomer syncDataCustomer, SyncDataQuickBooksInvoice syncDataInvoice) : base(httpContext)
+            IQuickBooksOnline quickBooks, SyncDataQuickBooksToken syncDataToken, SyncImportCustomer syncDataCustomer, SyncImportInvoice syncDataInvoice) : base(httpContext)
         {
             _logger = logger;
             _quickBooks = quickBooks; 

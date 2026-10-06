@@ -20,6 +20,7 @@ namespace App.Application.DTOs.QuickBookOnlineDTO.Invoice
         public decimal? TotalAmt { get; set; }
 
         public decimal? Balance { get; set; }
+        public decimal? Subtotal { get; set; }
 
         public QuickBooksReferenceDto? CustomerRef { get; set; }
 
@@ -32,6 +33,7 @@ namespace App.Application.DTOs.QuickBookOnlineDTO.Invoice
         public List<QuickBooksInvoiceLineDto>? Line { get; set; }
 
         public QuickBooksMetaDataDto? MetaData { get; set; }
+        public QuickBooksTxnTaxDetailDto? TxnTaxDetail { get; set; }
     }
 
     public class QuickBooksReferenceDto
@@ -73,5 +75,32 @@ namespace App.Application.DTOs.QuickBookOnlineDTO.Invoice
         public decimal? UnitPrice { get; set; }
 
         public QuickBooksReferenceDto? TaxCodeRef { get; set; }
+    }
+
+    public class QuickBooksTxnTaxDetailDto
+    {
+        public QuickBooksReferenceDto? TxnTaxCodeRef { get; set; }
+
+        public decimal? TotalTax { get; set; }
+
+        public List<QuickBooksTaxLineDto>? TaxLine { get; set; }
+    }
+    public class QuickBooksTaxLineDetailDto
+    {
+        public decimal? NetAmountTaxable { get; set; }
+
+        public decimal? TaxPercent { get; set; }
+
+        public QuickBooksReferenceDto? TaxRateRef { get; set; }
+
+        public bool? PercentBased { get; set; }
+    }
+    public class QuickBooksTaxLineDto
+    {
+        public string? DetailType { get; set; }
+
+        public decimal? Amount { get; set; }
+
+        public QuickBooksTaxLineDetailDto? TaxLineDetail { get; set; }
     }
 }
