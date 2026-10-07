@@ -153,6 +153,15 @@ namespace App.Application.Services.QuickBooks
                     x => x.Balance),
 
                 BulkMapping.Column<QuickBooksInvoiceDto>(
+                "TaxName",
+                typeof(string),
+                x => x.TxnTaxDetail?.TaxLine?
+                    .FirstOrDefault()?
+                    .TaxLineDetail?
+                    .TaxRateRef?
+                    .Name),
+
+                BulkMapping.Column<QuickBooksInvoiceDto>(
                     "CustomerQuickBooksId",
                     typeof(string),
                     x => x.CustomerRef?.Value),
